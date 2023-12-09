@@ -1,5 +1,6 @@
 import 'package:ecomerce_app/pages/CartPage.dart';
 import 'package:ecomerce_app/pages/Homepage.dart';
+import 'package:ecomerce_app/pages/InputProductPage.dart';
 import 'package:ecomerce_app/pages/ItemPage.dart';
 import 'package:ecomerce_app/pages/ItemPageBurger.dart';
 import 'package:ecomerce_app/pages/SplashScreen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
         "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
+        "/buatdata": (context) => Input(),
         "/": (context) => Homepage(), // Berikan "/" untuk rute Homepage
         "cartPage": (context) => CartPage(),
         "itemPage": (context) => ItemPage(),
