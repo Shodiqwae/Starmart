@@ -21,7 +21,7 @@ class _InputState extends State<Input> {
                   Row(
                     children: [
                       Container(
-                        child: Text("Welcome",
+                        child: Text("Welcome ",
                         style: TextStyle(fontFamily: "Montsserat-Bold", fontSize: 45,),),
                       ),
                     ],

@@ -115,7 +115,7 @@ class _IntroSliderState extends State<IntroSlider> {
                       'yearning powers is prime..',
                 ),
                 BuildIntroPage(
-                  img: 'images/#',
+                  img: 'images/1.png',
                   title: 'Page Three',
                   description: 'After peeling the strawberries, '
                       'soak lettuce, pumpkin seeds and '
