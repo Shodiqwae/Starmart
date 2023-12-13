@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     });
 
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/');
+      Navigator.pushReplacementNamed(context, '/buatdata');
     });
   }
 

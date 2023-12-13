@@ -1,10 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:ecomerce_app/pages/InputProductPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CategorisWidget.dart';
 import '../widgets/HomeAppBar.dart';
 import '../widgets/ItemsWidget.dart';
-import 'InputProductPage.dart';
 import 'package:badges/badges.dart' as badges;
 
 class Homepage extends StatelessWidget {
@@ -102,7 +102,7 @@ class Homepage extends StatelessWidget {
           if (index == 2) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => InputProdukPage()),
+              MaterialPageRoute(builder: (context) => Input()),
             );
           }
         },

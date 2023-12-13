@@ -1,114 +1,46 @@
 import 'package:flutter/material.dart';
 
-class InputProdukPage extends StatefulWidget {
+class Input extends StatefulWidget {
+  const Input({super.key});
+
   @override
-  _InputProdukPageState createState() => _InputProdukPageState();
+  State<Input> createState() => _InputState();
 }
 
-class _InputProdukPageState extends State<InputProdukPage> {
-  String _namaProduk = '';
-  String _harga = '';
-  String _kategoriProduk = 'Makanan'; // Nilai default untuk kategori produk
-  String _linkGambar = '';
-
+class _InputState extends State<Input> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tambah Produk'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextFormField(
-              onChanged: (value) {
-                setState(() {
-                  _namaProduk = value;
-                });
-              },
-              decoration: InputDecoration(labelText: 'Nama Produk'),
+            Container(
+              margin: EdgeInsets.only(top: 30,left: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        child: Text("Welcome ",
+                        style: TextStyle(fontFamily: "Montsserat-Bold", fontSize: 45,),),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Text("SmartVest!",
+                        style: TextStyle(fontFamily: "Montsserat-Bold",fontSize: 45,),),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
-            TextFormField(
-              onChanged: (value) {
-                setState(() {
-                  _harga = value;
-                });
-              },
-              decoration: InputDecoration(labelText: 'Harga'),
-              keyboardType: TextInputType.number,
-            ),
-            DropdownButtonFormField<String>(
-              value: _kategoriProduk,
-              onChanged: (newValue) {
-                setState(() {
-                  _kategoriProduk = newValue!;
-                });
-              },
-              items: <String>['Makanan', 'Minuman', 'Barang', 'Lainnya']
-                  .map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              decoration: InputDecoration(labelText: 'Kategori Produk'),
-            ),
-            TextFormField(
-              onChanged: (value) {
-                setState(() {
-                  _linkGambar = value;
-                });
-              },
-              decoration: InputDecoration(labelText: 'Link Gambar'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _showSummaryDialog(context);
-              },
-              child: Text('Kirim'),
-            ),
+            
           ],
         ),
       ),
-    );
-  }
-
-  void _showSummaryDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Ringkasan Informasi'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Nama Produk: $_namaProduk'),
-              Text('Harga: $_harga'),
-              Text('Kategori Produk: $_kategoriProduk'),
-              Text('Link Gambar: $_linkGambar'),
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                // Tambahkan logika untuk menyimpan informasi
-                Navigator.of(context).pop();
-              },
-              child: Text('Simpan'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Kembali'),
-            ),
-          ],
-        );
-      },
     );
   }
 }
