@@ -1,6 +1,8 @@
-import 'package:ecomerce_app/pages/InputProductPage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'Signin.dart';
 
 class OnAppbar extends StatelessWidget {
   final int currentPage;
@@ -45,7 +47,7 @@ class OnAppbar extends StatelessWidget {
       Spacer(),
           TextButton(
             onPressed: () {
-              Navigator.pop(context, "input");
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => Input())));
             },
             child: Text(
               "Skip",
@@ -241,11 +243,4 @@ class BuildIntroPage extends StatelessWidget {
       ],
     );
   }
-}
-
-
-void main() {
-  runApp(MaterialApp(
-    home: IntroSlider(),
-  ));
 }
