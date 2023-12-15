@@ -31,6 +31,9 @@ class _InputState extends State<Input> {
   bool passwordError = false;
   String notification = '';
 
+  bool usernameInvalid = false;
+  bool passwordInvalid = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,19 +112,21 @@ class _InputState extends State<Input> {
                 ],
               ),
             ),
-            if (usernameError)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if (usernameError || usernameInvalid)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Text(
-                      'Username/Email tidak boleh kosong',
-                      style: TextStyle(color: Colors.red,decoration: TextDecoration.underline),
+                      usernameInvalid
+                          ? 'Username Anda salah/belum membuat akun'
+                          : 'Username tidak boleh kosong',
+                      style: TextStyle(color: Colors.red, decoration: TextDecoration.underline),
                     ),
                   ),
-                ],
-              ),
+              ],
+            ),
             Container(
               margin: EdgeInsets.only(top: 20, left: 20, right: 20),
               padding: EdgeInsets.symmetric(horizontal: 15),
@@ -172,19 +177,21 @@ class _InputState extends State<Input> {
                 ],
               ),
             ),
-            if (passwordError)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if (passwordError || passwordInvalid)
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Text(
-                      'Password tidak boleh kosong',
-                      style: TextStyle(color: Colors.red,decoration: TextDecoration.underline),
+                      passwordInvalid
+                          ? 'Password Anda salah'
+                          : 'Password tidak boleh kosong',
+                      style: TextStyle(color: Colors.red, decoration: TextDecoration.underline),
                     ),
                   ),
-                ],
-              ),
+              ],
+            ),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +199,7 @@ class _InputState extends State<Input> {
                 if (notification.isNotEmpty)
                   Text(
                     notification,
-                    style: TextStyle(color: Colors.red,decoration: TextDecoration.underline),
+                    style: TextStyle(color: Colors.red, decoration: TextDecoration.underline),
                   ),
               ],
             ),
@@ -208,7 +215,13 @@ class _InputState extends State<Input> {
                           usernameError = usernameController.text.isEmpty && !hasAccount;
                           passwordError = passwordController.text.isEmpty;
 
-                          if (usernameError || passwordError) {
+                          usernameInvalid = !usernameError && !hasAccount && !AccountManager.accounts.any((account) => account.username == usernameController.text);
+                          passwordInvalid = !passwordError && !AccountManager.login(
+                            usernameController.text,
+                            passwordController.text,
+                          );
+
+                          if (usernameError || passwordError || usernameInvalid || passwordInvalid) {
                             notification = '';
                             return;
                           }
