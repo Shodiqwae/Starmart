@@ -116,7 +116,7 @@ class Homepage extends StatelessWidget {
           ),
           badges.Badge(
             onTap: () { 
-              Navigator.pushNamed(context, "cartPage");
+              Navigator.pushNamed(context, "SideBar");
             },
             child: Icon(
                CupertinoIcons.cart_fill,
@@ -127,6 +127,7 @@ class Homepage extends StatelessWidget {
               badgeColor: const Color.fromARGB(255, 254, 82, 70),
               padding: EdgeInsets.all(7),
             ),
+            
           ),
           Icon(
             Icons.filter_list, 

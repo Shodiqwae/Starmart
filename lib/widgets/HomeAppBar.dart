@@ -13,7 +13,8 @@ class HomeAppBar extends StatelessWidget {
             Icons.sort,
             size: 30,
             color: Color.fromARGB(255, 8, 8, 8),
-          ),
+            
+          ), 
           Padding(
             padding: EdgeInsets.only(
               left: 20,
@@ -33,7 +34,7 @@ class HomeAppBar extends StatelessWidget {
             showBadge: true,
             ignorePointer: false,
             onTap: () { 
-              Navigator.pushNamed(context, "cartPage");
+              Navigator.pushNamed(context, "UserProfile");
             },
             child: Icon(
               Icons.supervised_user_circle_rounded,

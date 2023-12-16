@@ -3,7 +3,9 @@ import 'package:ecomerce_app/pages/Homepage.dart';
 import 'package:ecomerce_app/pages/InputProductPage.dart';
 import 'package:ecomerce_app/pages/ItemPage.dart';
 import 'package:ecomerce_app/pages/ItemPageBurger.dart';
+import 'package:ecomerce_app/pages/SideBar.dart';
 import 'package:ecomerce_app/pages/SplashScreen.dart';
+import 'package:ecomerce_app/pages/UserProfile.dart';
 import 'package:ecomerce_app/pages/itemPageAyam.dart';
 import 'package:ecomerce_app/pages/itemPageKebab.dart';
 import 'package:flutter/material.dart';
@@ -24,14 +26,16 @@ class MyApp extends StatelessWidget {
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
         "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
-        "/buatdata": (context) => Input(),
-        "/": (context) => Homepage(), // Berikan "/" untuk rute Homepage
+        // "/buatdata": (context) => Homepage(),
+        "HomePage": (context) => Homepage(), // Berikan "/" untuk rute Homepage
         "cartPage": (context) => CartPage(),
         "itemPage": (context) => ItemPage(),
         "itemPageBurger": (context) => ItemPageBurger(),
         "itemPageKebab": (context) => ItemPageKebab(),
         "itemPageAyam": (context) => ItemPageAyam(),
-
+        "UserProfile" :(context) => UserProfile(),
+        "Input" : (context) => Input(),
+        "SideBar" : (context) => SideBar(),
       },
     );
   }

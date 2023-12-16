@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     });
 
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, '/buatdata');
+      Navigator.pushReplacementNamed(context, 'HomePage');
     });
   }
 
@@ -92,13 +92,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
               ),
             ),
             SizedBox(height: 20),
-            Text(
-              'Selamat datang',
-              style: TextStyle(
-                color: const Color.fromARGB(255, 0, 0, 0),
-                fontSize: 24,
-              ),
-            ),
+            // Text(
+            //   'Selamat datang',
+            //   style: TextStyle(
+            //     color: const Color.fromARGB(255, 0, 0, 0),
+            //     fontSize: 24,
+            //   ),
+            // ),
           ],
         ),
       ),
