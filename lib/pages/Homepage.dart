@@ -1,5 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:ecomerce_app/pages/InputProductPage.dart';
+import 'package:ecomerce_app/pages/Signin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CategorisWidget.dart';
@@ -8,6 +8,8 @@ import '../widgets/ItemsWidget.dart';
 import 'package:badges/badges.dart' as badges;
 
 class Homepage extends StatelessWidget {
+  Homepage();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,13 +101,26 @@ class Homepage extends StatelessWidget {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         onTap: (index) {
-          if (index == 2) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Input()),
+            );
+          }
+           if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Input()),
+            );
+          }
+           if (index == 3) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Input()),
             );
           }
         },
+        
         height: 70,
         color:  Color.fromARGB(216, 0, 85, 255),
         items: [
@@ -114,23 +129,18 @@ class Homepage extends StatelessWidget {
             size: 27, 
             color: const Color.fromARGB(255, 255, 255, 255),
           ),
-          badges.Badge(
-            onTap: () { 
-              Navigator.pushNamed(context, "SideBar");
-            },
-            child: Icon(
-               CupertinoIcons.cart_fill,
-              size: 27,
-              color: Color.fromARGB(255, 255, 255, 255),
-            ),
-            badgeStyle: badges.BadgeStyle(
-              badgeColor: const Color.fromARGB(255, 254, 82, 70),
-              padding: EdgeInsets.all(7),
-            ),
-            
-          ),
           Icon(
-            Icons.filter_list, 
+            Icons.favorite, 
+            size: 27, 
+            color: const Color.fromARGB(255, 255, 255, 255),
+          ),
+           Icon(
+            Icons.shopping_cart_rounded, 
+            size: 27, 
+            color: const Color.fromARGB(255, 255, 255, 255),
+          ),
+         Icon(
+            Icons.notifications, 
             size: 27, 
             color: const Color.fromARGB(255, 255, 255, 255),
           ),

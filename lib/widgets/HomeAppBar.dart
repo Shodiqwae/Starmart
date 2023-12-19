@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:ecomerce_app/widgets/HomeAppBar.dart';
 
 class HomeAppBar extends StatelessWidget {
   @override
@@ -9,12 +10,16 @@ class HomeAppBar extends StatelessWidget {
       padding: EdgeInsets.all(25),
       child: Row(
         children: [
-          Icon(
-            Icons.sort,
-            size: 30,
-            color: Color.fromARGB(255, 8, 8, 8),
-            
-          ), 
+          IconButton(
+            icon: Icon(
+              Icons.sort,
+              size: 30,
+              color: Color.fromARGB(255, 8, 8, 8),
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
           Padding(
             padding: EdgeInsets.only(
               left: 20,
@@ -33,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
             position: badges.BadgePosition.topEnd(top: -8, end: -2),
             showBadge: true,
             ignorePointer: false,
-            onTap: () { 
+            onTap: () {
               Navigator.pushNamed(context, "UserProfile");
             },
             child: Icon(
@@ -45,6 +50,45 @@ class HomeAppBar extends StatelessWidget {
               badgeColor: Colors.red,
               padding: EdgeInsets.all(7),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Sidebar Header',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text('Beranda'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Pengaturan'),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       ),
