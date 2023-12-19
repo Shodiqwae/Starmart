@@ -303,32 +303,32 @@ class _SgupState extends State<Sgup> {
                   margin: EdgeInsets.only(top: 30),
                   child: ElevatedButton(
                       style: raisedButtonStyle,
-                      onPressed: () {
-                            setState(() {
-                  usernameError = usernameController.text.isEmpty;
-                  emailError = emailController.text.isEmpty;
-                  passwordError = passwordController.text.isEmpty;
-                  passwordMismatch =
-                      passwordController.text != confirmPasswordController.text;
+                     onPressed: () {
+    setState(() {
+      usernameError = usernameController.text.isEmpty;
+      emailError = emailController.text.isEmpty;
+      passwordError = passwordController.text.isEmpty;
+      passwordMismatch =
+          passwordController.text != confirmPasswordController.text;
 
-                  if (usernameError || emailError || passwordError || passwordMismatch) {
-                    return;
-                  }
+      if (usernameError || emailError || passwordError || passwordMismatch) {
+        return;
+      }
 
-                  bool accountCreated = AccountManager.createAccount(
-                    usernameController.text,
-                    emailController.text,
-                    passwordController.text,
-                  );
+      bool accountCreated = AccountManager.createAccount(
+        usernameController.text,
+        emailController.text,
+        passwordController.text,
+      );
 
-                  if (accountCreated) {
-                    print('Account created successfully');
-                    Navigator.pop(context);
-                  } else {
-                    print('Username already exists');
-                  }
-                });
-                      },
+      if (accountCreated) {
+        print('Account created successfully');
+        Navigator.pop(context); // Kembali ke halaman login setelah berhasil membuat akun
+      } else {
+        print('Username or email already exists');
+      }
+    });
+  },
                       child: Text(
                         'Create Account',
                         style: TextStyle(fontSize: 20),
