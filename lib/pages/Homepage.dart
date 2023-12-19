@@ -13,10 +13,12 @@ class Homepage extends StatefulWidget {
   String initialEmail;
   String initialPassword;
 
+
   Homepage({
     required this.initialUsername,
     required this.initialEmail,
     required this.initialPassword,
+ 
   });
 
   @override
@@ -24,7 +26,10 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
+ String initialPin = '';
+ String initialaddress = '';
+ String initialCity = '';
+ String initialCountry = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +44,11 @@ class _HomepageState extends State<Homepage> {
                       username: widget.initialUsername,
                       email: widget.initialEmail,
                       password: widget.initialPassword,
+                      pin: initialPin,
+                      address: initialaddress,
+                      city: initialCity,
+                      country: initialCountry,
+
                     ),
                   ),
                 );
@@ -48,6 +58,10 @@ class _HomepageState extends State<Homepage> {
                     widget.initialUsername = changedData['name'];
                     widget.initialEmail = changedData['email'];
                     widget.initialPassword = changedData['password'];
+                    initialPin = changedData['pin'];
+                    initialaddress = changedData['address'];
+                    initialCity = changedData['city'];
+                    initialCountry = changedData['country'];
                   });
                 }
               },
