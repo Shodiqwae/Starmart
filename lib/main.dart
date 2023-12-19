@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
         "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
-        "Home": (context) => Homepage(),
         "cartPage": (context) => CartPage(),
         "/buatdata": (context) => IntroSlider(),
         "input": (context) => Input(),

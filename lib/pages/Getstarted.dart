@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 
 class Gst extends StatefulWidget {
   final String username;
+  final String email;
+  final String password;
 
-  Gst(this.username);
+  Gst({
+    required this.username,
+    required this.email,
+    required this.password,
+  });
 
   @override
   _GstState createState() => _GstState();
@@ -21,16 +27,21 @@ class _GstState extends State<Gst> {
             fit: BoxFit.cover,
           ),
         ),
-        child: YourContentWidget(username: widget.username),
+        child: YourContentWidget(username: widget.username, email: widget.email,password: widget.password,),
       ),
     );
   }
 }
-
 class YourContentWidget extends StatefulWidget {
   final String username;
+  final String email;
+  final String password;
 
-  YourContentWidget({required this.username});
+  YourContentWidget({
+    required this.username,
+    required this.email,
+    required this.password,
+  });
 
   @override
   _YourContentWidgetState createState() => _YourContentWidgetState();
@@ -91,9 +102,6 @@ class _YourContentWidgetState extends State<YourContentWidget> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-        
-   
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -140,21 +148,32 @@ class _YourContentWidgetState extends State<YourContentWidget> {
                           Container(
                             margin: EdgeInsets.only(top: 20),
                             child: ElevatedButton(
-                                style: raisedButtonStyle,
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Homepage(),
-                                      ));
-                                },
-                                child: Text('Get Started',style: TextStyle(fontFamily: 'Montsserat-Semi',fontSize: 20),)),
+                              style: raisedButtonStyle,
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Homepage(
+                                      initialUsername: widget.username,
+                                      initialEmail: widget.email,
+                                      initialPassword: widget.password,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Get Started',
+                                style: TextStyle(
+                                    fontFamily: 'Montsserat-Semi',
+                                    fontSize: 20),
+                              ),
+                            ),
                           )
                         ],
                       ),
-                        Container(
-                          margin: EdgeInsets.only(top: 36),
-                        )
+                      Container(
+                        margin: EdgeInsets.only(top: 36),
+                      )
                     ],
                   ),
                 ),

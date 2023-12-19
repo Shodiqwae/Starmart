@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:ecomerce_app/pages/Signin.dart';
+import 'package:ecomerce_app/pages/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/CategorisWidget.dart';
@@ -7,21 +8,68 @@ import '../widgets/HomeAppBar.dart';
 import '../widgets/ItemsWidget.dart';
 import 'package:badges/badges.dart' as badges;
 
-class Homepage extends StatelessWidget {
-  Homepage();
+class Homepage extends StatefulWidget {
+ String initialUsername;
+  String initialEmail;
+  String initialPassword;
 
+
+  Homepage({
+    required this.initialUsername,
+    required this.initialEmail,
+    required this.initialPassword,
+ 
+  });
+
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+ String initialPin = '';
+ String initialaddress = '';
+ String initialCity = '';
+ String initialCountry = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: [
-          HomeAppBar(),
+          HomeAppBar(
+             onPressed: () async {
+                final changedData = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Prfr(
+                      username: widget.initialUsername,
+                      email: widget.initialEmail,
+                      password: widget.initialPassword,
+                      pin: initialPin,
+                      address: initialaddress,
+                      city: initialCity,
+                      country: initialCountry,
+
+                    ),
+                  ),
+                );
+
+                if (changedData != null) {
+                  setState(() {
+                    widget.initialUsername = changedData['name'];
+                    widget.initialEmail = changedData['email'];
+                    widget.initialPassword = changedData['password'];
+                    initialPin = changedData['pin'];
+                    initialaddress = changedData['address'];
+                    initialCity = changedData['city'];
+                    initialCountry = changedData['country'];
+                  });
+                }
+              },
+          ),
           Container(
-            //temporary height
-            //height: 500,
             padding: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
-              color:  Color.fromARGB(213, 227, 227, 227),
+              color: Color.fromARGB(213, 227, 227, 227),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(35),
                 topRight: Radius.circular(35),
@@ -38,7 +86,6 @@ class Homepage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Row(
-
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 5),
@@ -56,7 +103,7 @@ class Homepage extends StatelessWidget {
                         Icons.search_rounded,
                         size: 27,
                         color: Color.fromARGB(255, 0, 0, 0),
-                      ), 
+                      ),
                     ],
                   ),
                 ),
@@ -69,9 +116,10 @@ class Homepage extends StatelessWidget {
                   child: Text(
                     "Semua makanan",
                     style: TextStyle(
-                      fontSize: 25, 
-                      fontWeight: FontWeight.bold, 
-                      color: Color.fromARGB(255, 0, 0, 0),),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
                   ),
                 ),
 
@@ -87,9 +135,9 @@ class Homepage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color:  Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
-                    ),
+                  ),
                 ),
 
                 ItemsWidget(),
@@ -109,19 +157,19 @@ class Homepage extends StatelessWidget {
           }
         },
         height: 70,
-        color:  Color.fromARGB(216, 0, 85, 255),
+        color: Color.fromARGB(216, 0, 85, 255),
         items: [
           Icon(
-            Icons.home_rounded, 
-            size: 27, 
+            Icons.home_rounded,
+            size: 27,
             color: const Color.fromARGB(255, 255, 255, 255),
           ),
           badges.Badge(
-            onTap: () { 
+            onTap: () {
               Navigator.pushNamed(context, "cartPage");
             },
             child: Icon(
-               CupertinoIcons.cart_fill,
+              CupertinoIcons.cart_fill,
               size: 27,
               color: Color.fromARGB(255, 255, 255, 255),
             ),
@@ -131,8 +179,8 @@ class Homepage extends StatelessWidget {
             ),
           ),
           Icon(
-            Icons.filter_list, 
-            size: 27, 
+            Icons.filter_list,
+            size: 27,
             color: const Color.fromARGB(255, 255, 255, 255),
           ),
         ],
