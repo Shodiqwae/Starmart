@@ -23,8 +23,7 @@ class _NotifChoiceState extends State<NotifChoice> {
           _buildCategory("Promo", 1),
           _buildCategory("Info", 2),
           _buildCategory("Feed", 3),
-          _buildCategory("Usep", 4),
-          _buildCategory("Yono", 5),
+          
         ],
       ),
     );
