@@ -11,6 +11,8 @@ import '../widgets/HomeAppBar.dart';
 import '../widgets/ItemsWidget.dart';
 import 'package:ecomerce_app/pages/profile.dart';
 
+import 'Checkout.dart';
+
 class Homepage extends StatefulWidget {
    String initialUsername;
    String initialEmail;
@@ -337,7 +339,7 @@ class _HomepageState extends State<Homepage> {
           if (index == 2) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Input()),
+              MaterialPageRoute(builder: (context) => payment()),
             );
           }
           if (index == 3) {
