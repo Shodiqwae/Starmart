@@ -319,6 +319,10 @@ class _SgupState extends State<Sgup> {
         usernameController.text,
         emailController.text,
         passwordController.text,
+        '***',
+        '',
+        '',
+        '',
       );
 
       if (accountCreated) {
