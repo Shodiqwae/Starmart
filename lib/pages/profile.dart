@@ -56,7 +56,7 @@ class Prfr extends StatefulWidget {
   final String city;
   final String country;
 
-  final List<String> genders = ['---', 'Male', 'Female', 'Other'];
+  final List<String> genders = ['Male', 'Female', 'Other'];
 
   Prfr({
     required this.username,
@@ -235,7 +235,7 @@ class _PrfrState extends State<Prfr> {
                                 controller: emailController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: '-----',
+                                  hintText: 'Email',
                                   hintStyle: TextStyle(
                                     color: Colors.black,
                                   ),
@@ -282,7 +282,7 @@ class _PrfrState extends State<Prfr> {
                                 controller: nameController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Nopalsadiq',
+                                  hintText: 'Username',
                                   hintStyle: TextStyle(
                                     color: Colors.black,
                                   ),

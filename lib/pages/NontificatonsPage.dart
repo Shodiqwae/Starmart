@@ -1,15 +1,19 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:ecomerce_app/widgets/CInfo.dart';
 import 'package:ecomerce_app/widgets/CPromo.dart';
 import 'package:ecomerce_app/widgets/CTransaction.dart';
 import 'package:ecomerce_app/widgets/PilihanNotif.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+import 'Homepage.dart';
+import 'Signin.dart';
+
+class Notif extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _NotifState createState() => _NotifState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NotifState extends State<Notif> {
   int selectedCategoryIndex = -1;
   Widget displayedWidget = CTransaction(); // Widget yang ditampilkan secara default
   bool isLoading = false;
@@ -91,22 +95,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-// child: InkWell(
-//               onTap: () {
-//                 Navigator.pushNamed(context, "");
-//               },
-//               Icon(
-//                 Icons.list_outlined, 
-//                 size: 30, 
-//                 olor: Colors.white,
-//               ),
-//             ),

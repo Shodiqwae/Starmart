@@ -14,7 +14,7 @@ class Input extends StatefulWidget {
 
 final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
   onPrimary: Colors.white,
-  primary: const Color.fromARGB(255, 0, 88, 184),
+  primary: const Color.fromARGB(255, 0, 88, 184), 
   minimumSize: Size(70, 20),
   padding: EdgeInsets.symmetric(horizontal: 155, vertical: 15),
   shape: const RoundedRectangleBorder(

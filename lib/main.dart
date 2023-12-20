@@ -6,10 +6,10 @@ import 'package:ecomerce_app/pages/Signin.dart';
 import 'package:ecomerce_app/pages/ItemPage.dart';
 import 'package:ecomerce_app/pages/ItemPageBurger.dart';
 import 'package:ecomerce_app/pages/SplashScreen.dart';
+import 'package:ecomerce_app/pages/UserProfile.dart';
 import 'package:ecomerce_app/pages/itemPageAyam.dart';
 import 'package:ecomerce_app/pages/itemPageKebab.dart';
 import 'package:flutter/material.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -31,8 +31,10 @@ class MyApp extends StatelessWidget {
         "itemPageBurger": (context) => ItemPageBurger(),
         "itemPageKebab": (context) => ItemPageKebab(),
         "itemPageAyam": (context) => ItemPageAyam(),
-
-      },
+        "UserProfile" :(context) => UserProfile(),
+        "Input" : (context) => Input(),
+        
+      }, 
     );
   }
   
