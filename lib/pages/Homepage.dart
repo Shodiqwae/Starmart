@@ -190,7 +190,7 @@ class _HomepageState extends State<Homepage> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Homepage(initialUsername:'',
-              initialEmail: '',
+                                      initialEmail: '',
               initialPassword: '')),
             );
           }
