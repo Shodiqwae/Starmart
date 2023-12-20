@@ -24,9 +24,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
         "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
-        "/buatdata": (context) => Homepage(),
-        "HomePage": (context) => Homepage(), // Berikan "/" untuk rute Homepage
-        "Home": (context) => Homepage(),
         "cartPage": (context) => CartPage(),
         "/buatdata": (context) => IntroSlider(),
         "input": (context) => Input(),
@@ -36,7 +33,7 @@ class MyApp extends StatelessWidget {
         "itemPageAyam": (context) => ItemPageAyam(),
         "UserProfile" :(context) => UserProfile(),
         "Input" : (context) => Input(),
-       
+        
       }, 
     );
   }

@@ -210,48 +210,49 @@ class _InputState extends State<Input> {
                   margin: EdgeInsets.only(top: 50),
                   child: ElevatedButton(
                       style: raisedButtonStyle,
-                      onPressed: () {
-                        setState(() {
-                          usernameError = usernameController.text.isEmpty && !hasAccount;
-                          passwordError = passwordController.text.isEmpty;
+                     onPressed: () {
+                setState(() {
+                  usernameError = usernameController.text.isEmpty && !hasAccount;
+                  passwordError = passwordController.text.isEmpty;
 
-                          usernameInvalid = !usernameError && !hasAccount && !AccountManager.accounts.any((account) => account.username == usernameController.text);
-                          passwordInvalid = !passwordError && !AccountManager.login(
-                            usernameController.text,
-                            passwordController.text,
-                          );
+                  if (usernameError || passwordError) {
+                    notification = 'Username/Email and password cannot be empty';
+                    return;
+                  }
 
-                          if (usernameError || passwordError || usernameInvalid || passwordInvalid) {
-                            notification = '';
-                            return;
-                          }
+                  bool loggedIn = false;
+                  if (hasAccount) {
+                    loggedIn = AccountManager.loginWithEmail(
+                      usernameController.text,
+                      passwordController.text,
+                    );
+                  } else {
+                    loggedIn = AccountManager.login(
+                      usernameController.text,
+                      passwordController.text,
+                    );
+                  }
 
-                          bool loggedIn = false;
-                          if (hasAccount) {
-                            loggedIn = AccountManager.loginWithEmail(
-                              usernameController.text,
-                              passwordController.text,
-                            );
-                          } else {
-                            loggedIn = AccountManager.login(
-                              usernameController.text,
-                              passwordController.text,
-                            );
-                          }
-
-                          if (loggedIn) {
-                            print('Login successful');
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Gst(usernameController.text),
-                              ),
-                            );
-                          } else {
-                            notification = 'Username/Email atau password salah';
-                          }
-                        });
-                      },
+                  if (loggedIn) {
+                    print('Login successful');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Gst(
+                          username: usernameController.text,
+                          email: AccountManager.accounts
+                              .firstWhere((account) =>
+                                  account.username == usernameController.text)
+                              .email, // Ambil email dari akun yang sesuai
+                          password: passwordController.text, // Sertakan nilai password
+                        ),
+                      ),
+                    );
+                  } else {
+                    notification = 'Username/Email or password is incorrect';
+                  }
+                });
+              },
                       child: Text(
                         'Login',
                         style: TextStyle(fontSize: 20),
