@@ -42,18 +42,11 @@ class _HomeAppBarState extends State<HomeAppBar> {
               ),
             ),
             Spacer(),
-            badges.Badge(
-              position: badges.BadgePosition.topEnd(top: -8, end: -2),
-              showBadge: true,
-              ignorePointer: false,
-              onTap: () {
-                Navigator.pushNamed(context, "cartPage");
-              },
-              child: IconButton(
+               IconButton(
                 onPressed: () => widget.onPressed(),
                 icon: Icon(Icons.supervised_user_circle_outlined),
               ),
-            ),
+            
           ],
         ),
     
