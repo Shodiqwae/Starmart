@@ -43,6 +43,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   animated_text_kit: ^4.2.2
   typed_data: ^1.3.2
+  like_button: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,8 @@ flutter:
       - images/Buttons.png
       - images/tebe.png
       - images/profile.png
+      - images/cekotimg/1.png
+      - images/cekotimg/2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
