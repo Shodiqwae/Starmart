@@ -5,7 +5,13 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+  late AnimationController _textAnimationController;
+  late Animation<double> _textOpacityAnimation;
+  late AnimationController _imageAnimationController;
+  late Animation<double> _imageOpacityAnimation;
+
   @override
   void initState() {
     super.initState();

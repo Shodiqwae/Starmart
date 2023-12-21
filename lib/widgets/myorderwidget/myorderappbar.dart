@@ -1,3 +1,4 @@
+import 'package:ecomerce_app/pages/Homepage.dart';
 import 'package:flutter/material.dart';
 
 class MyorderAppbar extends StatelessWidget {
@@ -9,9 +10,7 @@ class MyorderAppbar extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage(initialEmail: '',initialUsername: '',initialPassword: '',)),);},
             child: Icon(
               Icons.arrow_back_ios_new,
               size: 30,

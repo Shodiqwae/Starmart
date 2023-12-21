@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 
 
 class selectpay extends StatefulWidget {
-  const selectpay({super.key});
+  List<Map<String, dynamic>> cart;
+  int total;
+
+  selectpay({required this.cart, required this.total});
 
   @override
   State<selectpay> createState() => _selectpayState();
@@ -23,7 +26,7 @@ class _selectpayState extends State<selectpay> {
               height: 800,
               child: Column(
                 children: [
-                  PaymentScreen(),
+                  PaymentScreen(cart: widget.cart, total: widget.total),
                  
                   
                 ],
@@ -37,7 +40,9 @@ class _selectpayState extends State<selectpay> {
     );
   }
 }
-  void showPaymentSuccessDialog(BuildContext context) {
+  void showPaymentSuccessDialog(BuildContext context, int total1, List<Map<String, dynamic>> cart1) {
+   
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -63,7 +68,7 @@ class _selectpayState extends State<selectpay> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyOrder(total: total1, cart: cart1,)));
               },
               child: Text('OK'),
             ),

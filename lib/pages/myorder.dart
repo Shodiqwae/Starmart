@@ -5,17 +5,25 @@ import 'package:ecomerce_app/widgets/myorderwidget/myordertrans.dart';
 import 'package:flutter/material.dart';
 
 class MyOrder extends StatefulWidget {
+
+  List<Map<String, dynamic>> cart;
+  int total;
+
+  MyOrder({required this.cart, required this.total});
+
+
   @override
   _MyOrderState createState() => _MyOrderState();
 }
 
 class _MyOrderState extends State<MyOrder> {
   int selectedCategoryIndex = -1;
-  Widget displayedWidget = MyTransaction(); // Widget yang ditampilkan secara default
+  Widget displayedWidget = MyTransaction(cart: [], total: 0,); // Widget yang ditampilkan secara default
   bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Stack(
         children: [
@@ -67,7 +75,10 @@ class _MyOrderState extends State<MyOrder> {
       setState(() {
         switch (index) {
           case 0:
-            displayedWidget = MyTransaction();
+            displayedWidget = MyTransaction(
+              cart: widget.cart,
+              total: widget.total,
+            );
             break;
           case 1:
             displayedWidget = MyorderInfo();

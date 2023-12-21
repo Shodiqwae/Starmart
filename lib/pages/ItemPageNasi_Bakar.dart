@@ -6,8 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../widgets/ItemAppBar.dart';
 import '../widgets/ItemBottomNavbar.dart';
 
-class ItemPage extends StatelessWidget {
-
+class ItemPageNasi_Bakar extends StatelessWidget {
   // List<Color> Clrs = [
   //   Colors.black,
   //   Color.fromARGB(255, 19, 81, 189),
@@ -26,7 +25,7 @@ class ItemPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16),
             child: Image.asset(
-              "images/1.png",
+              "images/nasi_bakar.jpeg",
               height: 300,
             ),
           ),
@@ -49,10 +48,15 @@ class ItemPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "Sandwich strobery",
+                            "Nasi Bakar",
                             style: TextStyle(
                               fontSize: 28,
-                              color:  Color.fromARGB(255, 0, 0,0,),
+                              color: Color.fromARGB(
+                                255,
+                                0,
+                                0,
+                                0,
+                              ),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -73,7 +77,7 @@ class ItemPage extends StatelessWidget {
                             itemPadding: EdgeInsets.symmetric(horizontal: 4),
                             itemBuilder: (context, _) => Icon(
                               Icons.star,
-                               color: Color.fromARGB(255, 255, 213, 2),
+                              color: Color.fromARGB(255, 255, 213, 2),
                             ),
                             onRatingUpdate: (index) {},
                           ),
@@ -95,7 +99,7 @@ class ItemPage extends StatelessWidget {
                                 child: Icon(
                                   CupertinoIcons.minus,
                                   size: 18,
-                                 color:  Color.fromARGB(216, 0, 0,0),
+                                  color: Color.fromARGB(216, 0, 0, 0),
                                 ),
                               ),
                               Container(
@@ -125,7 +129,7 @@ class ItemPage extends StatelessWidget {
                                 child: Icon(
                                   CupertinoIcons.plus,
                                   size: 18,
-                                  color:  Color.fromARGB(255, 0, 0, 0),
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                             ],
@@ -136,59 +140,12 @@ class ItemPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Sandwich strobery dengan cream vanila yang lembut",
+                        "roti lembut dengan cream",
                         textAlign: TextAlign.justify,
                         style: TextStyle(
                           fontSize: 17,
-                          color:  Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Pilihan",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Row(
-                            children: [
-                              for (int i = 1; i < 7; i++)
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.symmetric(horizontal: 5),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(30),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 2,
-                                          blurRadius: 8,
-                                        ),
-                                      ]),
-                                  child: Text(
-                                    i.toString(),
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color:  Color.fromARGB(216, 0, 85, 255),
-                                        ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ],
                       ),
                     ),
                     Padding(
@@ -225,7 +182,6 @@ class ItemPage extends StatelessWidget {
                                   //       ),
                                   //     ]
                                   //     ),
-                                  
                                 ),
                             ],
                           ),
@@ -239,7 +195,7 @@ class ItemPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: ItemBottomNavbar(),
+      bottomNavigationBar: ItemBottomNavbar(harga: '5.000'),
     );
   }
 }

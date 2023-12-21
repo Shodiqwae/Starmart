@@ -36,6 +36,46 @@ class _HomepageState extends State<Homepage> {
   String initialCity = '';
   String initialCountry = '';
   int _currentIndex = 0;
+  bool vafaqua = false;
+  bool vafaoka = false;
+  bool vafbatagor = false;
+  bool vafcireng = false;
+  bool vafgorengan = false;
+  bool vafsusu = false;
+  bool vafnasi_bakar = false;
+  bool vafnasi_uduk = false;
+  List<Map<String, dynamic>> cart = [];
+
+  void addItem(
+      String name, int price, String rateS, double rateD, String display) {
+    // Cek apakah item sudah ada di dalam list
+    int existingIndex = cart.indexWhere((item) => item['nama'] == name);
+
+    if (existingIndex != -1) {
+      // Jika item sudah ada, tambahkan count
+      setState(() {
+        cart[existingIndex]['count'] += 1;
+      });
+    } else {
+      // Jika item belum ada, tambahkan item baru
+      setState(() {
+        cart.add({
+          'nama': name,
+          'price': price,
+          'count': 1,
+          'productinitrate': rateS,
+          'productRatings': rateD,
+          'dnama': display,
+        });
+      });
+    }
+  }
+
+  void removeItem(int index) {
+    setState(() {
+      cart.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +186,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
-                            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Notif()),);},
+                            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => notificationpage()),);},
                       ),
                       ListTile(
                         leading: Icon(
@@ -291,7 +331,7 @@ class _HomepageState extends State<Homepage> {
                   CarouselSlider(
                     options: CarouselOptions(
                       viewportFraction: 0.7,
-                      aspectRatio: 64/19,
+                      aspectRatio: 64 / 19,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
@@ -304,16 +344,15 @@ class _HomepageState extends State<Homepage> {
                       scrollDirection: Axis.horizontal,
                     ),
                     items: [
+                      "images/carousel1.jpg",
                       "images/carousel2.jpg",
-                      "images/carousel2.jpg",
-                      "images/carousel2.jpg"
+                      "images/carousel1.jpg"
                     ].map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             margin: EdgeInsets.symmetric(
                               horizontal: 7,
-                              
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
@@ -338,7 +377,82 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ),
                   ),
-                  ItemsWidget(),
+                  ItemsWidget(
+                    vafaqua1: vafaqua,
+                    vafaoka1: vafaoka,
+                    vafbatagor1: vafbatagor,
+                    vafcireng1: vafcireng,
+                    vafgorengan1: vafgorengan,
+                    vafsusu1: vafsusu,
+                    vafnasi_bakar1: vafnasi_bakar,
+                    vafnasi_uduk1: vafnasi_uduk,
+                    //tombol add to favorite
+                    aquaPressed: () async {
+                      setState(() {
+                        vafaqua = !vafaqua;
+                      });
+                    },
+                    aokaPressed: () async {
+                      setState(() {
+                        vafaoka = !vafaoka;
+                      });
+                    },
+                    batagorPressed: () async {
+                      setState(() {
+                        vafbatagor = !vafbatagor;
+                      });
+                    },
+                    cirengPressed: () async {
+                      setState(() {
+                        vafcireng = !vafcireng;
+                      });
+                    },
+                    gorenganPressed: () async {
+                      setState(() {
+                        vafgorengan = !vafgorengan;
+                      });
+                    },
+                    susuPressed: () async {
+                      setState(() {
+                        vafsusu = !vafsusu;
+                      });
+                    },
+                    nasi_bakarPressed: () async {
+                      setState(() {
+                        vafnasi_bakar = !vafnasi_bakar;
+                      });
+                    },
+                    nasi_udukPressed: () async {
+                      setState(() {
+                        vafnasi_uduk = !vafnasi_uduk;
+                      });
+                    },
+                    //tombol add to cart
+                    aquaPressedCart: () async {
+                      addItem('aqua', 3000, '4.0', 4.0, 'Aqua');
+                    },
+                    aokaPressedCart: () async {
+                      addItem('aoka', 3000, '4.5', 4.5, 'Aoka');
+                    },
+                    batagorPressedCart: () async {
+                      addItem('batagor', 5000, '4.5', 4.5, 'Batagor');
+                    },
+                    cirengPressedCart: () async {
+                      addItem('cireng', 5000, '4.5', 4.5, 'Cireng');
+                    },
+                    gorenganPressedCart: () async {
+                      addItem('gorengan', 1000, '4.5', 4.5, 'Gorengan');
+                    },
+                    susuPressedCart: () async {
+                      addItem('susu', 5000, '4.5', 4.5, 'Susu');
+                    },
+                    nasi_bakarPressedCart: () async {
+                      addItem('nasi_bakar', 5000, '4.5', 4.5, 'Nasi Bakar');
+                    },
+                    nasi_udukPressedCart: () async {
+                      addItem('nasi_uduk', 5000, '4.5', 4.5, 'Nasi Uduk');
+                    },
+                  ),
                 ],
               ),
             ),
@@ -346,24 +460,73 @@ class _HomepageState extends State<Homepage> {
         );
       case 1:
         return Payment(
-          onBackButtonPressed: () {
-            setState(() {
-              _currentIndex = 0; // Change to the index of FirstWidget
-            });
-          },
-        );
+            onBackButtonPressed: () {
+              setState(() {
+                _currentIndex = 0; // Change to the index of FirstWidget
+              });
+            },
+            cart: cart,
+            removePressed: (int index) => removeItem(index));
       case 2:
         return MyHomePage(
           initialUsername1: widget.initialUsername,
           initialEmail1: widget.initialEmail,
           initialPassword1: widget.initialPassword,
+          vafaqua1: vafaqua,
+          aquaPressed: () async {
+            setState(() {
+              vafaqua = !vafaqua;
+            });
+          },
+          vafaoka1: vafaoka,
+          aokaPressed: () async {
+            setState(() {
+              vafaoka = !vafaoka;
+            });
+          },
+          vafbatagor1: vafbatagor,
+          batagorPressed: () async {
+            setState(() {
+              vafbatagor = !vafbatagor;
+            });
+          },
+          vafcireng1: vafcireng,
+          cirengPressed: () async {
+            setState(() {
+              vafcireng = !vafcireng;
+            });
+          },
+          vafgorengan1: vafgorengan,
+          gorenganPressed: () async {
+            setState(() {
+              vafgorengan = !vafgorengan;
+            });
+          },
+          vafsusu1: vafsusu,
+          susuPressed: () async {
+            setState(() {
+              vafsusu = !vafsusu;
+            });
+          },
+          vafnasi_bakar1: vafnasi_bakar,
+          nasi_bakarPressed: () async {
+            setState(() {
+              vafnasi_bakar = !vafnasi_bakar;
+            });
+          },
+          vafnasi_uduk1: vafnasi_uduk,
+          nasi_udukPressed: () async {
+            setState(() {
+              vafnasi_uduk = !vafnasi_uduk;
+            });
+          },
           initialPin1: initialPin,
           initialaddress1: initialaddress,
           initialCity1: initialCity,
           initialCountry1: initialCountry,
         );
       case 3:
-        return Notif();
+        return notificationpage();
       default:
         return Container();
     }
@@ -372,14 +535,30 @@ class _HomepageState extends State<Homepage> {
   Widget _buildCurvedNavigationBar() {
     return CurvedNavigationBar(
       index: _currentIndex,
-      color:  Color.fromARGB(216, 0, 85, 255),
+      color: Color.fromARGB(216, 0, 85, 255),
       backgroundColor: const Color.fromARGB(
           255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
       items: [
-        Icon(Icons.home, size: 30, color: Colors.white,),
-        Icon(Icons.shopping_cart_rounded, size: 30,color: Colors.white,),
-        Icon(Icons.favorite, size: 30,color: Colors.white,),
-        Icon(Icons.notifications, size: 30,color: Colors.white,),
+        Icon(
+          Icons.home,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.shopping_cart_rounded,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.favorite,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.notifications,
+          size: 30,
+          color: Colors.white,
+        ),
       ],
       onTap: (index) {
         setState(() {

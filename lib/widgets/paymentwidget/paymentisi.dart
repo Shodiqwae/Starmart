@@ -2,9 +2,12 @@ import 'package:ecomerce_app/pages/payment.dart';
 import 'package:ecomerce_app/widgets/paymentwidget/paymentorder.dart';
 import 'package:flutter/material.dart';
 
-
-
 class PaymentScreen extends StatefulWidget {
+  List<Map<String, dynamic>> cart;
+  int total;
+
+  PaymentScreen({required this.cart, required this.total});
+
   @override
   _PaymentScreenState createState() => _PaymentScreenState();
 }
@@ -12,47 +15,36 @@ class PaymentScreen extends StatefulWidget {
 class _PaymentScreenState extends State<PaymentScreen> {
   PaymentMethod? _selectedPaymentMethod;
 
-     @override
+  @override
   Widget build(BuildContext context) {
-    return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-            ...generatePaymentMethodCards(),
-              orderpay()
-                ],
-              ),
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: [...generatePaymentMethodCards(), orderpay(cart: widget.cart, total: widget.total,)],
+        ),
+      ),
+      SizedBox(height: 16.0),
+      Container(
+        height: 50,
+        width: 50,
+        child: ElevatedButton(
+          onPressed: _selectedPaymentMethod != null
+              ? () {
+                  showPaymentSuccessDialog(context, widget.total, widget.cart);
+                }
+              : null,
+          style: ElevatedButton.styleFrom(
+              primary: Color.fromRGBO(0, 80, 184, 5),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15))),
+          child: Text(
+            'Pay Now',
+            style: TextStyle(fontFamily: "Montsserat-Bold", fontSize: 15),
           ),
-          SizedBox(height: 16.0),
-          Container(
-            height: 50,
-              width: 50,
-            child: ElevatedButton(
-                                  onPressed: _selectedPaymentMethod != null
-                    ? () {
-                        showPaymentSuccessDialog(context);
-                      }
-                    : null,
-                                  style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(0, 80, 184,5),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)
-                            )
-                          ),
-                                  child: Text('Pay Now',
-                                  style: TextStyle(
-                                    fontFamily: "Montsserat-Bold",
-                                    fontSize: 15
-                                  ),
-                                  ),
-                                ),
-          ),
-          ]
-                
-        );
+        ),
+      ),
+    ]);
   }
 
   List<Widget> generatePaymentMethodCards() {
@@ -63,7 +55,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       // Tambahkan metode pembayaran lainnya sesuai kebutuhan
     ];
 
-     List<Widget> cards = [];
+    List<Widget> cards = [];
 
     for (var method in paymentMethods) {
       cards.add(buildPaymentMethodCard(method));
@@ -155,9 +147,8 @@ class PaymentMethodCard extends StatelessWidget {
               SizedBox(width: 30.0),
               Text(
                 label,
-                style: TextStyle(fontSize: 20.0,
-                fontFamily: "Montsserat-Medium"
-                ),
+                style:
+                    TextStyle(fontSize: 20.0, fontFamily: "Montsserat-Medium"),
               ),
             ],
           ),
