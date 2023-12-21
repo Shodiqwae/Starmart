@@ -54,7 +54,7 @@ class _summaryisiState extends State<summaryisi> {
                       Container(
                         padding: EdgeInsets.all(10),
                         
-                        child: Image.asset("images/${index + 1}.png",
+                        child: Image.asset("images/cekotimg/${index + 1}.png",
                               ),
                       )
                     ],

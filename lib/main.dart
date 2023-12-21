@@ -1,4 +1,4 @@
-import 'package:ecomerce_app/pages/CartPage.dart';
+
 import 'package:ecomerce_app/pages/Getstarted.dart';
 import 'package:ecomerce_app/pages/Homepage.dart';
 import 'package:ecomerce_app/pages/Onboading.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
         "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
-        "cartPage": (context) => CartPage(),
+        
         "/buatdata": (context) => IntroSlider(),
         "input": (context) => Input(),
         "itemPage": (context) => ItemPage(),

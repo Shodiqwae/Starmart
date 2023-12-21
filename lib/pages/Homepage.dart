@@ -1,16 +1,23 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecomerce_app/pages/NontificatonsPage.dart';
 import 'package:ecomerce_app/pages/Signin.dart';
+import 'package:ecomerce_app/pages/favorite.dart';
+import 'package:ecomerce_app/widgets/PilihanNotif.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import '../widgets/CategorisWidget.dart';
 import '../widgets/HomeAppBar.dart';
 import '../widgets/ItemsWidget.dart';
 import 'package:ecomerce_app/pages/profile.dart';
 
+import 'Checkout.dart';
+
 class Homepage extends StatefulWidget {
-   String initialUsername;
-   String initialEmail;
-    String initialPassword;
+  String initialUsername;
+  String initialEmail;
+  String initialPassword;
 
   Homepage({
     required this.initialUsername,
@@ -27,188 +34,332 @@ class _HomepageState extends State<Homepage> {
   String initialaddress = '';
   String initialCity = '';
   String initialCountry = '';
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(216, 0, 85, 255),
               ),
-              child: Text(
-                'User Profile',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () => ZoomDrawer.of(context)!.close(),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 90,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.amber),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'P',
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Column(
+                    children: const [
+                      ListTile(
+                        leading: Icon(
+                          Icons.home_outlined,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Home',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.person_outline,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Account',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.wallet_outlined,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Wallet',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.notifications_outlined,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Notifications',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.bedtime_outlined,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Night Mode',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.logout,
+                          color: Color.fromARGB(255, 47, 47, 47),
+                        ),
+                        title: Text(
+                          'Logout',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 47, 47, 47),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
         ),
       ),
-      body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      body: _getCurrentPage(),
+      bottomNavigationBar:
+          _currentIndex == 1 ? null : _buildCurvedNavigationBar(),
     );
   }
 
-  Widget _buildBody() {
-    return ListView(
-      children: [
-        HomeAppBar(
-          onPressed: () async {
-            final changedData = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Prfr(
-                  username: widget.initialUsername,
-                  email: widget.initialEmail,
-                  password: widget.initialPassword,
-                  pin: initialPin,
-                  address: initialaddress,
-                  city: initialCity,
-                  country: initialCountry,
+  Widget _getCurrentPage() {
+    switch (_currentIndex) {
+      case 0:
+        return ListView(
+          children: [
+            HomeAppBar(
+              onPressed: () async {
+                final changedData = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Prfr(
+                      username: widget.initialUsername,
+                      email: widget.initialEmail,
+                      password: widget.initialPassword,
+                      pin: initialPin,
+                      address: initialaddress,
+                      city: initialCity,
+                      country: initialCountry,
+                    ),
+                  ),
+                );
+
+                if (changedData != null) {
+                  setState(() {
+                    widget.initialUsername = changedData['name'];
+                    widget.initialEmail = changedData['email'];
+                    widget.initialPassword = changedData['password'];
+                    initialPin = changedData['pin'];
+                    initialaddress = changedData['address'];
+                    initialCity = changedData['city'];
+                    initialCountry = changedData['country'];
+                  });
+                }
+              },
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 15),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(213, 227, 227, 227),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
                 ),
               ),
-            );
-
-            if (changedData != null) {
-              setState(() {
-                widget.initialUsername = changedData['name'];
-                widget.initialEmail = changedData['email'];
-                widget.initialPassword = changedData['password'];
-                initialPin = changedData['pin'];
-                initialaddress = changedData['address'];
-                initialCity = changedData['city'];
-                initialCountry = changedData['country'];
-              });
-            }
-          },
-        ),
-        Container(
-          padding: EdgeInsets.only(top: 15),
-          decoration: BoxDecoration(
-            color: Color.fromARGB(213, 227, 227, 227),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(35),
-              topRight: Radius.circular(35),
-            ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 5),
-                      height: 50,
-                      width: 300,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search Here',
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 5),
+                          height: 50,
+                          width: 300,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search Here',
+                            ),
+                          ),
                         ),
+                        Spacer(),
+                        Icon(
+                          Icons.search_rounded,
+                          size: 27,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 10,
+                    ),
+                    child: Text(
+                      "Semua makanan",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
-                      Icons.search_rounded,
-                      size: 27,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                  ),
+                  //Categories
+                  CategoriesWidget(),
+
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //carousel
+                  CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 0.95,
+                      aspectRatio: 63 / 16,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 3),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 10,
-                ),
-                child: Text(
-                  "Semua makanan",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    items: [
+                      "images/carousel-1.jpg",
+                      "images/carousel-2.jpg",
+                      "images/carousel-1.jpg"
+                    ].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(19),
+                              child: Container(child: Image.asset(i)),
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
                   ),
-                ),
-              ),
-              //Categories
-              CategoriesWidget(),
-              //items
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                child: Text(
-                  "Terlaris",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              ItemsWidget(),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
 
-  Widget _buildBottomNavigationBar() {
-    return CurvedNavigationBar(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      onTap: (index) {
-        if (index == 2) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Input()),
-          );
-        }
-      },
-      height: 70,
-      color: Color.fromARGB(216, 0, 85, 255),
-      items: [
-        Icon(
-          Icons.home_rounded,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        badges.Badge(
-          onTap: () {
-            Navigator.pushNamed(context, "cartPage");
+                  //items
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    child: Text(
+                      "Terlaris",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                  ),
+                  ItemsWidget(),
+                ],
+              ),
+            ),
+          ],
+        );
+      case 1:
+        return Payment(
+          onBackButtonPressed: () {
+            setState(() {
+              _currentIndex = 0; // Change to the index of FirstWidget
+            });
           },
-          child: Icon(
-            Icons.card_travel,
-            size: 27,
-            color: Color.fromARGB(255, 255, 255, 255),
-          ),
-          badgeStyle: badges.BadgeStyle(
-            badgeColor: const Color.fromARGB(255, 254, 82, 70),
-            padding: EdgeInsets.all(7),
-          ),
-        ),
-        Icon(
-          Icons.filter_list,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
-      ],
-    );
+        );
+      case 2:
+        return MyHomePage(
+          initialUsername1: widget.initialUsername,
+          initialEmail1: widget.initialEmail,
+          initialPassword1: widget.initialPassword,
+        );
+      case 3:
+        return Notif();
+      default:
+        return Container();
+    }
   }
 
-  
+  Widget _buildCurvedNavigationBar() {
+    return CurvedNavigationBar(
+      index: _currentIndex,
+      color: Colors.blueAccent,
+      backgroundColor: const Color.fromARGB(
+          255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
+      items: [
+        Icon(Icons.home, size: 30),
+        Icon(Icons.business, size: 30),
+        Icon(Icons.heart_broken_sharp, size: 30),
+        Icon(Icons.notifications, size: 30),
+      ],
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
+    );
+  }
 }

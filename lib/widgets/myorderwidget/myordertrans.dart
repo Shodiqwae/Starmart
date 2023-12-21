@@ -49,7 +49,7 @@ class MyTransaction extends StatelessWidget{
         height: 110,
         width: 100,
         margin: EdgeInsets.only(right: 15),
-        child: Image.asset("images/${i + 1}.png"),
+        child: Image.asset("images/cekotimg/${i + 1}.png"),
       ),
       Flexible(
         child: Padding(
