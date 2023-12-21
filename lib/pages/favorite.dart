@@ -7,19 +7,47 @@ class MyHomePage extends StatefulWidget {
   String initialUsername1;
   String initialEmail1;
   String initialPassword1;
-  bool vafsandwich1;
-  final Function sandwichPressed;
-  bool vafburger1;
-  final Function burgerPressed;
+  bool vafaqua1;
+  final Function aquaPressed;
+  bool vafaoka1;
+  final Function aokaPressed;
+  bool vafbatagor1;
+  final Function batagorPressed;
+  bool vafcireng1;
+  final Function cirengPressed;
+  bool vafgorengan1;
+  final Function gorenganPressed;
+  bool vafsusu1;
+  final Function susuPressed;
+  bool vafnasi_bakar1;
+  final Function nasi_bakarPressed;
+  bool vafnasi_uduk1;
+  final Function nasi_udukPressed;
 
   MyHomePage({
     required this.initialUsername1,
     required this.initialEmail1,
     required this.initialPassword1,
-    required this.vafsandwich1,
-    required this.sandwichPressed,
-    required this.vafburger1,
-    required this.burgerPressed,
+    required this.vafaqua1,
+    required this.aquaPressed,
+    required this.vafaoka1,
+    required this.aokaPressed,
+    required this.vafbatagor1,
+    required this.batagorPressed,
+    required this.vafcireng1,
+    required this.cirengPressed,
+    required this.vafgorengan1,
+    required this.gorenganPressed,
+    required this.vafsusu1,
+    required this.susuPressed,
+    required this.vafnasi_bakar1,
+    required this.nasi_bakarPressed,
+    required this.vafnasi_uduk1,
+    required this.nasi_udukPressed,
+    required String initialaddress1,
+    required String initialPin1,
+    required String initialCity1,
+    required String initialCountry1,
   });
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -71,10 +99,22 @@ class _MyHomePageState extends State<MyHomePage> {
           // Container kedua menggunakan ScrollableContainer
           Expanded(
             child: ScrollableContainer(
-              vafburger3: widget.vafburger1,
-              vafsandwich3: widget.vafsandwich1,
-              sandwichPressed: widget.sandwichPressed,
-              burgerPressed: widget.burgerPressed,
+              vafaoka3: widget.vafaoka1,
+              vafaqua3: widget.vafaqua1,
+              vafbatagor3: widget.vafbatagor1,
+              vafcireng3: widget.vafcireng1,
+              vafgorengan3: widget.vafgorengan1,
+              vafsusu3: widget.vafsusu1,
+              vafnasi_bakar3: widget.vafnasi_bakar1,
+              vafnasi_uduk3: widget.vafnasi_uduk1,
+              aquaPressed: widget.aquaPressed,
+              aokaPressed: widget.aokaPressed,
+              batagorPressed: widget.batagorPressed,
+              cirengPressed: widget.cirengPressed,
+              gorenganPressed: widget.gorenganPressed,
+              susuPressed: widget.susuPressed,
+              nasi_bakarPressed: widget.nasi_bakarPressed,
+              nasi_udukPressed: widget.nasi_udukPressed,
             ),
           ),
         ],
@@ -129,15 +169,40 @@ class _ContainerWidgetState extends State<ContainerWidget> {
 }
 
 class ScrollableContainer extends StatefulWidget {
-  bool vafsandwich3;
-  final Function sandwichPressed;
-  bool vafburger3;
-  final Function burgerPressed;
+  bool vafaqua3;
+  final Function aquaPressed;
+  bool vafaoka3;
+  final Function aokaPressed;
+  bool vafbatagor3;
+  final Function batagorPressed;
+  bool vafcireng3;
+  final Function cirengPressed;
+  bool vafgorengan3;
+  final Function gorenganPressed;
+  bool vafsusu3;
+  final Function susuPressed;
+  bool vafnasi_bakar3;
+  final Function nasi_bakarPressed;
+  bool vafnasi_uduk3;
+  final Function nasi_udukPressed;
+
   ScrollableContainer({
-    required this.vafsandwich3,
-    required this.sandwichPressed,
-    required this.vafburger3,
-    required this.burgerPressed,
+    required this.vafaqua3,
+    required this.aquaPressed,
+    required this.vafaoka3,
+    required this.aokaPressed,
+    required this.vafbatagor3,
+    required this.batagorPressed,
+    required this.vafcireng3,
+    required this.cirengPressed,
+    required this.vafgorengan3,
+    required this.gorenganPressed,
+    required this.vafsusu3,
+    required this.susuPressed,
+    required this.vafnasi_bakar3,
+    required this.nasi_bakarPressed,
+    required this.vafnasi_uduk3,
+    required this.nasi_udukPressed,
   });
 
   @override
@@ -156,10 +221,22 @@ class _ScrollableContainerState extends State<ScrollableContainer> {
           borderRadius: BorderRadius.circular(30),
         ),
         child: Crt(
-          sandwich: widget.vafsandwich3,
-          burger: widget.vafburger3,
-          sandwichPressed: widget.sandwichPressed,
-          burgerPressed: widget.burgerPressed,
+          aqua: widget.vafaqua3,
+          aoka: widget.vafaoka3,
+          batagor: widget.vafbatagor3,
+          cireng: widget.vafcireng3,
+          gorengan: widget.vafgorengan3,
+          susu: widget.vafsusu3,
+          nasi_bakar: widget.vafnasi_bakar3,
+          nasi_uduk: widget.vafnasi_uduk3,
+          aquaPressed: widget.aquaPressed,
+          aokaPressed: widget.aokaPressed,
+          batagorPressed: widget.batagorPressed,
+          cirengPressed: widget.cirengPressed,
+          gorenganPressed: widget.gorenganPressed,
+          susuPressed: widget.susuPressed,
+          nasi_bakarPressed: widget.nasi_bakarPressed,
+          nasi_udukPressed: widget.nasi_udukPressed,
         ),
       ),
     );

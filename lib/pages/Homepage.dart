@@ -35,11 +35,18 @@ class _HomepageState extends State<Homepage> {
   String initialCity = '';
   String initialCountry = '';
   int _currentIndex = 0;
-  bool vafsandwich = false;
-  bool vafburger = false;
+  bool vafaqua = false;
+  bool vafaoka = false;
+  bool vafbatagor = false;
+  bool vafcireng = false;
+  bool vafgorengan = false;
+  bool vafsusu = false;
+  bool vafnasi_bakar = false;
+  bool vafnasi_uduk = false;
   List<Map<String, dynamic>> cart = [];
 
-  void addItem(String name, int price) {
+  void addItem(
+      String name, int price, String rateS, double rateD, String display) {
     // Cek apakah item sudah ada di dalam list
     int existingIndex = cart.indexWhere((item) => item['nama'] == name);
 
@@ -51,16 +58,23 @@ class _HomepageState extends State<Homepage> {
     } else {
       // Jika item belum ada, tambahkan item baru
       setState(() {
-        cart.add({'nama': name, 'price': price, 'count': 1});
+        cart.add({
+          'nama': name,
+          'price': price,
+          'count': 1,
+          'productinitrate': rateS,
+          'productRatings': rateD,
+          'dnama': display,
+        });
       });
     }
   }
 
   void removeItem(int index) {
-  setState(() {
-    cart.removeAt(index);
-  });
-}
+    setState(() {
+      cart.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -295,8 +309,8 @@ class _HomepageState extends State<Homepage> {
                   //carousel
                   CarouselSlider(
                     options: CarouselOptions(
-                      viewportFraction: 0.95,
-                      aspectRatio: 63 / 16,
+                      viewportFraction: 0.7,
+                      aspectRatio: 64 / 19,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
@@ -309,18 +323,18 @@ class _HomepageState extends State<Homepage> {
                       scrollDirection: Axis.horizontal,
                     ),
                     items: [
-                      "images/carousel-1.jpg",
-                      "images/carousel-2.jpg",
-                      "images/carousel-1.jpg"
+                      "images/carousel1.jpg",
+                      "images/carousel2.jpg",
+                      "images/carousel1.jpg"
                     ].map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             margin: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 7,
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(19),
+                              borderRadius: BorderRadius.circular(20),
                               child: Container(child: Image.asset(i)),
                             ),
                           );
@@ -343,25 +357,79 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   ItemsWidget(
-                    vafsandwich1: vafsandwich,
-                    vafburger1: vafburger,
+                    vafaqua1: vafaqua,
+                    vafaoka1: vafaoka,
+                    vafbatagor1: vafbatagor,
+                    vafcireng1: vafcireng,
+                    vafgorengan1: vafgorengan,
+                    vafsusu1: vafsusu,
+                    vafnasi_bakar1: vafnasi_bakar,
+                    vafnasi_uduk1: vafnasi_uduk,
                     //tombol add to favorite
-                    sandwichPressed: () async {
+                    aquaPressed: () async {
                       setState(() {
-                        vafsandwich = !vafsandwich;
+                        vafaqua = !vafaqua;
                       });
                     },
-                    burgerPressed: () async {
+                    aokaPressed: () async {
                       setState(() {
-                        vafburger = !vafburger;
+                        vafaoka = !vafaoka;
+                      });
+                    },
+                    batagorPressed: () async {
+                      setState(() {
+                        vafbatagor = !vafbatagor;
+                      });
+                    },
+                    cirengPressed: () async {
+                      setState(() {
+                        vafcireng = !vafcireng;
+                      });
+                    },
+                    gorenganPressed: () async {
+                      setState(() {
+                        vafgorengan = !vafgorengan;
+                      });
+                    },
+                    susuPressed: () async {
+                      setState(() {
+                        vafsusu = !vafsusu;
+                      });
+                    },
+                    nasi_bakarPressed: () async {
+                      setState(() {
+                        vafnasi_bakar = !vafnasi_bakar;
+                      });
+                    },
+                    nasi_udukPressed: () async {
+                      setState(() {
+                        vafnasi_uduk = !vafnasi_uduk;
                       });
                     },
                     //tombol add to cart
-                    sandwichPressedCart: () async {
-                      addItem('Sandwich', 13000);
+                    aquaPressedCart: () async {
+                      addItem('aqua', 3000, '4.0', 4.0, 'Aqua');
                     },
-                    burgerPressedCart: () async {
-                      addItem('Burger', 30000);
+                    aokaPressedCart: () async {
+                      addItem('aoka', 3000, '4.5', 4.5, 'Aoka');
+                    },
+                    batagorPressedCart: () async {
+                      addItem('batagor', 5000, '4.5', 4.5, 'Batagor');
+                    },
+                    cirengPressedCart: () async {
+                      addItem('cireng', 5000, '4.5', 4.5, 'Cireng');
+                    },
+                    gorenganPressedCart: () async {
+                      addItem('gorengan', 1000, '4.5', 4.5, 'Gorengan');
+                    },
+                    susuPressedCart: () async {
+                      addItem('susu', 5000, '4.5', 4.5, 'Susu');
+                    },
+                    nasi_bakarPressedCart: () async {
+                      addItem('nasi_bakar', 5000, '4.5', 4.5, 'Nasi Bakar');
+                    },
+                    nasi_udukPressedCart: () async {
+                      addItem('nasi_uduk', 5000, '4.5', 4.5, 'Nasi Uduk');
                     },
                   ),
                 ],
@@ -371,31 +439,70 @@ class _HomepageState extends State<Homepage> {
         );
       case 1:
         return Payment(
-          onBackButtonPressed: () {
-            setState(() {
-              _currentIndex = 0; // Change to the index of FirstWidget
-            });
-          },
-          cart: cart,
-          removePressed: (int index) => removeItem(index)
-        );
+            onBackButtonPressed: () {
+              setState(() {
+                _currentIndex = 0; // Change to the index of FirstWidget
+              });
+            },
+            cart: cart,
+            removePressed: (int index) => removeItem(index));
       case 2:
         return MyHomePage(
           initialUsername1: widget.initialUsername,
           initialEmail1: widget.initialEmail,
           initialPassword1: widget.initialPassword,
-          vafburger1: vafburger,
-          sandwichPressed: () async {
+          vafaqua1: vafaqua,
+          aquaPressed: () async {
             setState(() {
-              vafsandwich = !vafsandwich;
+              vafaqua = !vafaqua;
             });
           },
-          vafsandwich1: vafsandwich,
-          burgerPressed: () async {
+          vafaoka1: vafaoka,
+          aokaPressed: () async {
             setState(() {
-              vafburger = !vafburger;
+              vafaoka = !vafaoka;
             });
           },
+          vafbatagor1: vafbatagor,
+          batagorPressed: () async {
+            setState(() {
+              vafbatagor = !vafbatagor;
+            });
+          },
+          vafcireng1: vafcireng,
+          cirengPressed: () async {
+            setState(() {
+              vafcireng = !vafcireng;
+            });
+          },
+          vafgorengan1: vafgorengan,
+          gorenganPressed: () async {
+            setState(() {
+              vafgorengan = !vafgorengan;
+            });
+          },
+          vafsusu1: vafsusu,
+          susuPressed: () async {
+            setState(() {
+              vafsusu = !vafsusu;
+            });
+          },
+          vafnasi_bakar1: vafnasi_bakar,
+          nasi_bakarPressed: () async {
+            setState(() {
+              vafnasi_bakar = !vafnasi_bakar;
+            });
+          },
+          vafnasi_uduk1: vafnasi_uduk,
+          nasi_udukPressed: () async {
+            setState(() {
+              vafnasi_uduk = !vafnasi_uduk;
+            });
+          },
+          initialPin1: initialPin,
+          initialaddress1: initialaddress,
+          initialCity1: initialCity,
+          initialCountry1: initialCountry,
         );
       case 3:
         return notificationpage();
@@ -407,14 +514,30 @@ class _HomepageState extends State<Homepage> {
   Widget _buildCurvedNavigationBar() {
     return CurvedNavigationBar(
       index: _currentIndex,
-      color: Colors.blueAccent,
+      color: Color.fromARGB(216, 0, 85, 255),
       backgroundColor: const Color.fromARGB(
           255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
       items: [
-        Icon(Icons.home, size: 30),
-        Icon(Icons.business, size: 30),
-        Icon(Icons.heart_broken_sharp, size: 30),
-        Icon(Icons.notifications, size: 30),
+        Icon(
+          Icons.home,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.shopping_cart_rounded,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.favorite,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.notifications,
+          size: 30,
+          color: Colors.white,
+        ),
       ],
       onTap: (index) {
         setState(() {

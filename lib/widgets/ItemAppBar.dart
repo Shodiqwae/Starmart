@@ -13,28 +13,23 @@ class ItemAppBar extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Icon(
-              Icons.arrow_back, 
-              size: (30), 
+              Icons.arrow_back,
+              size: (30),
               color: Colors.black,
-              ),
+            ),
           ),
-            Padding(
-                padding: EdgeInsets.only(left: 20), 
-                child: Text(
-                  "Produk", 
-                  style: TextStyle(
-                    fontSize: 23, 
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Text(
+              "Produk",
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-             ),
-           ),
-            Spacer(),
-            Icon(
-              Icons.favorite,
-              size: 30,
-              color: const Color.fromARGB(255, 244, 54, 124),
-          )
+            ),
+          ),
+          Spacer(),
         ],
       ),
     );

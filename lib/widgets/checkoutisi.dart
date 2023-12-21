@@ -21,7 +21,7 @@ class _CekotisiState extends State<Cekotisi> {
     // Tambahkan judul produk yang lain di sini
   ];
 
-  final List<String> productinitrate = ['4.0', '4.0', '4.0', '4.0', '4.5'];
+  //final List<String> productinitrate = ['4.0', '4.0', '4.0', '4.0', '4.5'];
 
   List<double> productRatings = [
     4.0,
@@ -184,7 +184,9 @@ class _CekotisiState extends State<Cekotisi> {
                         padding: EdgeInsets.all(10),
 
                         child: Image.asset(
-                          "images/cekotimg/${i + 1}.png",
+                          "images/${widget.cart[i]['nama']}.jpeg",
+                          height: 120,
+                          width: 120,
                         ), // Sesuaikan path gambar
                       ),
                       Container(
@@ -193,7 +195,7 @@ class _CekotisiState extends State<Cekotisi> {
                             Container(
                               margin: EdgeInsets.only(right: 30),
                               child: Text(
-                                widget.cart[i]['nama'],
+                                widget.cart[i]['dnama'],
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
@@ -246,7 +248,7 @@ class _CekotisiState extends State<Cekotisi> {
                               child: Row(
                                 children: [
                                   Text(
-                                    productinitrate[i],
+                                    widget.cart[i]['productinitrate'],
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
@@ -254,7 +256,8 @@ class _CekotisiState extends State<Cekotisi> {
                                     ),
                                   ),
                                   RatingBar.builder(
-                                    initialRating: productRatings[i],
+                                    initialRating: widget.cart[i]
+                                        ['productRatings'],
                                     minRating: 1,
                                     direction: Axis.horizontal,
                                     allowHalfRating: true,

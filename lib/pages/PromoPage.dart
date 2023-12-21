@@ -1,10 +1,14 @@
+import 'package:ecomerce_app/pages/placeorder.dart';
 import 'package:ecomerce_app/widgets/CPromo.dart';
 import 'package:ecomerce_app/widgets/HomeAppBar.dart';
+import 'package:ecomerce_app/widgets/placeorderwidget/placeordersummary.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
 class PromoPage extends StatelessWidget {
-  const PromoPage({super.key});
+ 
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +20,15 @@ class PromoPage extends StatelessWidget {
             padding: EdgeInsets.all(25),
             child: Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  size: 30,
-                  color: Color.fromARGB(255, 8, 8, 8),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 30,
+                    color: Color.fromARGB(255, 8, 8, 8),
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.only(
