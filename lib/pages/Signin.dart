@@ -36,6 +36,7 @@ class _InputState extends State<Input> {
 
   @override
   Widget build(BuildContext context) {
+     double globalWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

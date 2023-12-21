@@ -144,6 +144,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       ListTile(
+                        
                         leading: Icon(
                           Icons.logout,
                           color: Color.fromARGB(255, 47, 47, 47),
@@ -335,6 +336,10 @@ class _HomepageState extends State<Homepage> {
           initialUsername1: widget.initialUsername,
           initialEmail1: widget.initialEmail,
           initialPassword1: widget.initialPassword,
+          initialPin1: initialPin,
+          initialaddress1: initialaddress,
+          initialCity1: initialCity,
+          initialCountry1: initialCountry,
         );
       case 3:
         return Notif();
