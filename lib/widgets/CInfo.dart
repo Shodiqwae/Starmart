@@ -19,7 +19,7 @@ class CInfo extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             child: Text(
-              'Tidak Ada Usep Yang Masuk Today',
+              'Tidak ada notifikasi',
               style: TextStyle(
                 color: Color.fromARGB(255, 175, 179, 184),
                 fontSize: 20.0,

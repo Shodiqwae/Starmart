@@ -72,8 +72,8 @@ class ItemPageBurger extends StatelessWidget {
                             itemSize: 20,
                             itemPadding: EdgeInsets.symmetric(horizontal: 4),
                             itemBuilder: (context, _) => Icon(
-                              Icons.favorite,
-                               color: const Color.fromARGB(255, 244, 54, 124),
+                              Icons.star,
+                               color: Color.fromARGB(255, 255, 213, 2),
                             ),
                             onRatingUpdate: (index) {},
                           ),

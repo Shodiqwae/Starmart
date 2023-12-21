@@ -87,6 +87,14 @@ flutter:
       - images/carousel-2.jpg
       - images/cekotimg/1.png
       - images/cekotimg/2.png
+      - images/kosong.png
+      - images/promo.png
+      - images/transaction.png
+      - images/carousel1.jpg
+      - images/carousel2.jpg
+      - images/Logo.png
+      - images/intro.png
+      - images/closing.png
   #   - images/a_dot_ham.jpeg
 
 

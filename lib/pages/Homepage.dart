@@ -256,7 +256,7 @@ class _HomepageState extends State<Homepage> {
               SizedBox(height: 20,),
                 //carousel
                   CarouselSlider(
-                  options: CarouselOptions(viewportFraction: 0.95, aspectRatio: 63/16,
+                  options: CarouselOptions(viewportFraction: 0.7, aspectRatio: 68/19,
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
@@ -269,16 +269,16 @@ class _HomepageState extends State<Homepage> {
                   scrollDirection: Axis.horizontal,
                   ),
                   items: [
-                    "images/carousel-1.jpg",
-                    "images/carousel-2.jpg",
-                    "images/carousel-1.jpg"
+                    "images/carousel1.jpg",
+                    "images/carousel2.jpg",
+                    "images/carousel1.jpg"
                     ].map((i) {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5,),
+                          margin: EdgeInsets.symmetric(horizontal: 6,),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(19),
+                            borderRadius: BorderRadius.circular(20),
                             child: Container(
                               child: Image.asset(i)),
                           ),

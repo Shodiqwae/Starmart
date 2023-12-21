@@ -25,7 +25,7 @@ class CPromo extends StatelessWidget{
         height: 110,
         width: 100,
         margin: EdgeInsets.only(right: 15),
-        child: Image.asset("images/1.jpg"),
+        child: Image.asset("images/promo.png"),
       ),
       Flexible(
         child: Padding(

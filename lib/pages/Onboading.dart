@@ -97,32 +97,22 @@ class _IntroSliderState extends State<IntroSlider> {
               },
               children: [
                 BuildIntroPage(
-                  img: 'images/2.png',
-                  title: 'Choose Products',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..'
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  img: 'images/intro.png',
+                  title: 'Selamat datang',
+                  description: 'Selamat datang di Smart! Log in sekarang dan nikmati diskon 20% untuk pembelian pertama kamu di aplikasi ini.'
+                  
                 ),
                 BuildIntroPage(
                   img: 'images/keranjang.png',
-                  title: 'Make Payment',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..'
-                       'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  title: 'Lets go',
+                  description: 'Terima kasih sudah mengunjungi website kami. Silakan lakukan pencarian di website ini '
+                     
                 ),
                 BuildIntroPage(
-                  img: 'images/1.png',
-                  title: 'Page Three',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  img: 'images/closing.png',
+                  title: 'Selamat berbelanja',
+                  description: 'Halo, Sobat starbhak. Kali ini ada diskon hingga 60% loh. Yuk, buruan dapatkan diskonnya sekarang. '
+                      
                 ),
               ],
             ),
