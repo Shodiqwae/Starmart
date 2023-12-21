@@ -92,7 +92,12 @@ flutter:
       - images/payment/2.png
       - images/payment/3.png
       - images/success.gif
-  #   - images/a_dot_ham.jpeg
+      - images/Logo.png
+      - images/intro.png
+      - images/kosong.png
+      - images/promo.png
+      - images/closing.png
+      - images/transaction.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
