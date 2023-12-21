@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/splash", // Tentukan halaman awal sebagai SplashScreen
       routes: {
-        "/splash": (context) => SplashScreen(), // Tentukan rute untuk SplashScreen
+        "/splash": (context) =>
+            SplashScreen(), // Tentukan rute untuk SplashScreen
         "cartPage": (context) => CartPage(),
         "/buatdata": (context) => IntroSlider(),
         "input": (context) => Input(),
@@ -31,11 +32,9 @@ class MyApp extends StatelessWidget {
         "itemPageBurger": (context) => ItemPageBurger(),
         "itemPageKebab": (context) => ItemPageKebab(),
         "itemPageAyam": (context) => ItemPageAyam(),
-        "UserProfile" :(context) => UserProfile(),
-        "Input" : (context) => Input(),
-        
-      }, 
+        "UserProfile": (context) => UserProfile(),
+        "Input": (context) => Input(),
+      },
     );
   }
-  
 }

@@ -23,7 +23,6 @@ class _NotifChoiceState extends State<NotifChoice> {
           _buildCategory("Promo", 1),
           _buildCategory("Info", 2),
           _buildCategory("Feed", 3),
-          
         ],
       ),
     );
@@ -40,14 +39,18 @@ class _NotifChoiceState extends State<NotifChoice> {
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
-        padding: EdgeInsets.all(1),
+        padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           // Atur bgColor ketika pilihan notif dipencet
-          color: selectedCategoryIndex == index ? Color.fromARGB(255, 224, 241, 255) : Colors.white,
-          borderRadius: BorderRadius.circular(10),
+          color: selectedCategoryIndex == index
+              ? Color.fromARGB(255, 224, 241, 255)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(5),
           border: Border.all(
             // Yang ini Outlinenya
-            color: selectedCategoryIndex == index ? const Color.fromARGB(255, 84, 178, 255) : Colors.transparent,
+            color: selectedCategoryIndex == index
+                ? Color.fromARGB(255, 57, 57, 57)
+                : Colors.transparent,
             width: 1.0,
           ),
         ),
