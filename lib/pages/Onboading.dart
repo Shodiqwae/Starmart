@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'Signin.dart';
 
 class OnAppbar extends StatelessWidget {
@@ -105,7 +103,7 @@ class _IntroSliderState extends State<IntroSlider> {
                 BuildIntroPage(
                   img: 'images/keranjang.png',
                   title: 'Lets go',
-                  description: 'Terima kasih sudah mengunjungi website kami. Silakan lakukan pencarian di website ini '
+                  description: 'Terima kasih sudah mengunjungi aplikasi kami. Silakan lakukan pencarian di aplikasi ini '
                      
                 ),
                 BuildIntroPage(
@@ -120,19 +118,22 @@ class _IntroSliderState extends State<IntroSlider> {
           SizedBox(height: 15),
           
           Row(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  children: [
-    TextButton(
-      onPressed: () {
-        if (currentPageIndex > 0) {
-          _controller.previousPage(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeOut,
-          );
-        }
-      },
-      child: Text('Prev', style: TextStyle(fontSize: 21,  color: Colors.black.withOpacity(0.3),)),
-    ),
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Opacity(
+          opacity: currentPageIndex > 0 ? 1.0 : 0.0,
+          child: TextButton(
+            onPressed: () {
+              if (currentPageIndex > 0) {
+                _controller.previousPage(
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeOut,
+                );
+              }
+            },
+            child: Text('Prev', style: TextStyle(fontSize: 21,  color: Colors.black.withOpacity(0.3),)),
+         ),
+      ),
     Spacer(),
     SmoothPageIndicator(
   controller: _controller,
