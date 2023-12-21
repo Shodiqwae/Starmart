@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CInfo extends StatelessWidget {
+class MyorderInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -19,11 +19,11 @@ class CInfo extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             child: Text(
-              'Tidak ada notifikasi',
+              'There is Nothing Here',
               style: TextStyle(
                 color: Color.fromARGB(255, 175, 179, 184),
                 fontSize: 20.0,
-                fontWeight: FontWeight.bold,
+                fontFamily: "Montsserat-Medium"
               ),
             ),
           ),

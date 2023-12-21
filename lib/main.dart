@@ -1,4 +1,3 @@
-
 import 'package:ecomerce_app/pages/Getstarted.dart';
 import 'package:ecomerce_app/pages/Homepage.dart';
 import 'package:ecomerce_app/pages/Onboading.dart';
@@ -35,5 +34,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-  
 }

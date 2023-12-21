@@ -236,7 +236,7 @@ class _PrfrState extends State<Prfr> {
                                 controller: emailController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Email',
+                                  hintText: '',
                                   hintStyle: TextStyle(
                                     color: Colors.black,
                                   ),
@@ -283,7 +283,7 @@ class _PrfrState extends State<Prfr> {
                                 controller: nameController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Username',
+                                  hintText: '',
                                   hintStyle: TextStyle(
                                     color: Colors.black,
                                   ),
@@ -333,7 +333,7 @@ class _PrfrState extends State<Prfr> {
                                 obscureText: _obscureText,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Password',
+                                  hintText: '',
                                   hintStyle: TextStyle(
                                     color: Colors.black,
                                   ),

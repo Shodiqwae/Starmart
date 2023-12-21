@@ -13,6 +13,7 @@ import '../widgets/ItemsWidget.dart';
 import 'package:ecomerce_app/pages/profile.dart';
 
 import 'Checkout.dart';
+import 'myorder.dart';
 
 class Homepage extends StatefulWidget {
   String initialUsername;
@@ -39,37 +40,44 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(216, 0, 85, 255),
-              ),
-              child: Column(
+      drawer:Drawer(
+  child: Container(
+    padding: EdgeInsets.zero,
+    child: DrawerHeader(
+    
+      decoration: BoxDecoration(
+        color: Color.fromARGB(216, 0, 85, 255),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+        child: Container(
+          height: 100,
+          child: Column(
+            children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: () => ZoomDrawer.of(context)!.close(),
+                    onTap: () {},
                     child: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                       size: 30,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+               
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 90,
+                        height: 65,
                         width: 65,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.amber),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.amber,
+                        ),
                         alignment: Alignment.center,
                         child: const Text(
                           'P',
@@ -78,11 +86,18 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
+                     SizedBox(
+                    height: 10,
                   ),
+                  Divider(
+  height: 20, // tinggi garis
+  color: Colors.black, // warna garis
+  thickness: 2,
+),
+               
                   Column(
-                    children: const [
+                    children:  [
+                      
                       ListTile(
                         leading: Icon(
                           Icons.home_outlined,
@@ -94,6 +109,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                       
                       ),
                       ListTile(
                         leading: Icon(
@@ -130,6 +146,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Notif()),);},
                       ),
                       ListTile(
                         leading: Icon(
@@ -144,7 +161,6 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       ListTile(
-                        
                         leading: Icon(
                           Icons.logout,
                           color: Color.fromARGB(255, 47, 47, 47),
@@ -160,10 +176,14 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+    
+    ),
+  ),
+),
+
       body: _getCurrentPage(),
       bottomNavigationBar:
           _currentIndex == 1 ? null : _buildCurvedNavigationBar(),
@@ -229,7 +249,7 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           height: 50,
-                          width: 300,
+                          width: 200,
                           child: TextFormField(
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -270,8 +290,8 @@ class _HomepageState extends State<Homepage> {
                   //carousel
                   CarouselSlider(
                     options: CarouselOptions(
-                      viewportFraction: 0.95,
-                      aspectRatio: 63 / 16,
+                      viewportFraction: 0.7,
+                      aspectRatio: 64/19,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
@@ -284,18 +304,19 @@ class _HomepageState extends State<Homepage> {
                       scrollDirection: Axis.horizontal,
                     ),
                     items: [
-                      "images/carousel-1.jpg",
-                      "images/carousel-2.jpg",
-                      "images/carousel-1.jpg"
+                      "images/carousel2.jpg",
+                      "images/carousel2.jpg",
+                      "images/carousel2.jpg"
                     ].map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             margin: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 7,
+                              
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(19),
+                              borderRadius: BorderRadius.circular(20),
                               child: Container(child: Image.asset(i)),
                             ),
                           );
@@ -351,14 +372,14 @@ class _HomepageState extends State<Homepage> {
   Widget _buildCurvedNavigationBar() {
     return CurvedNavigationBar(
       index: _currentIndex,
-      color: Colors.blueAccent,
+      color:  Color.fromARGB(216, 0, 85, 255),
       backgroundColor: const Color.fromARGB(
           255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
       items: [
-        Icon(Icons.home, size: 30),
-        Icon(Icons.business, size: 30),
-        Icon(Icons.heart_broken_sharp, size: 30),
-        Icon(Icons.notifications, size: 30),
+        Icon(Icons.home, size: 30, color: Colors.white,),
+        Icon(Icons.shopping_cart_rounded, size: 30,color: Colors.white,),
+        Icon(Icons.favorite, size: 30,color: Colors.white,),
+        Icon(Icons.notifications, size: 30,color: Colors.white,),
       ],
       onTap: (index) {
         setState(() {

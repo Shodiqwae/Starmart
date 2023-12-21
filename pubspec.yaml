@@ -46,6 +46,8 @@ dependencies:
   typed_data: ^1.3.2
   carousel_slider: ^4.0.0
   like_button: ^2.0.5
+  dropdown_button2: ^2.3.9
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -78,16 +80,25 @@ flutter:
       - images/5.png
       - images/6.png
       - images/7.png
+      - images/carousel1.jpg
+      - images/carousel2.jpg
       - images/profile.jpg
       - images/keranjang.png
       - images/Buttons.png
       - images/tebe.png
       - images/profile.png
-      - images/carousel-1.jpg
-      - images/carousel-2.jpg
       - images/cekotimg/1.png
       - images/cekotimg/2.png
-  #   - images/a_dot_ham.jpeg
+      - images/payment/1.png
+      - images/payment/2.png
+      - images/payment/3.png
+      - images/success.gif
+      - images/Logo.png
+      - images/intro.png
+      - images/kosong.png
+      - images/promo.png
+      - images/closing.png
+      - images/transaction.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

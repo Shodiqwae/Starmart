@@ -1,3 +1,4 @@
+import 'package:ecomerce_app/pages/placeorder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class CekotBottomNavbar extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-               
+                Navigator.push(context, MaterialPageRoute(builder: (context) => summary()));
               },
               child:  Container(    
               height: 60,
