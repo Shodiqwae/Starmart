@@ -4,7 +4,7 @@ class CategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> sandalNames = [
-      "Sandwich", "Burger", "Kebab", "Korean chicken", "Es capucino", "Sate taichan", "Teguk Lemon tea"
+      "Aoka", "Aqua", "Batagor", "Nasi Bakar", "Nasi Uduk", "Cireng", "Susu"
     ]; // Nama untuk setiap teks 'sandal'
 
     return SingleChildScrollView(
@@ -23,7 +23,7 @@ class CategoriesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "images/${i + 1}.png",
+                    "images/cataimg/${i + 1}.jpeg",
                     width: 40,
                     height: 40,
                   ),
