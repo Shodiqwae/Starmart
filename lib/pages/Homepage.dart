@@ -144,6 +144,7 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       ListTile(
+                        
                         leading: Icon(
                           Icons.logout,
                           color: Color.fromARGB(255, 47, 47, 47),
@@ -269,8 +270,8 @@ class _HomepageState extends State<Homepage> {
                   //carousel
                   CarouselSlider(
                     options: CarouselOptions(
-                      viewportFraction: 0.95,
-                      aspectRatio: 63 / 16,
+                      viewportFraction: 0.7,
+                      aspectRatio: 64/19,
                       initialPage: 0,
                       enableInfiniteScroll: true,
                       reverse: false,
@@ -283,18 +284,19 @@ class _HomepageState extends State<Homepage> {
                       scrollDirection: Axis.horizontal,
                     ),
                     items: [
-                      "images/carousel-1.jpg",
-                      "images/carousel-2.jpg",
-                      "images/carousel-1.jpg"
+                      "images/carousel1.jpg",
+                      "images/carousel2.jpg",
+                      "images/carousel1.jpg"
                     ].map((i) {
                       return Builder(
                         builder: (BuildContext context) {
                           return Container(
                             margin: EdgeInsets.symmetric(
-                              horizontal: 5,
+                              horizontal: 7,
+                              
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(19),
+                              borderRadius: BorderRadius.circular(20),
                               child: Container(child: Image.asset(i)),
                             ),
                           );
@@ -335,6 +337,10 @@ class _HomepageState extends State<Homepage> {
           initialUsername1: widget.initialUsername,
           initialEmail1: widget.initialEmail,
           initialPassword1: widget.initialPassword,
+          initialPin1: initialPin,
+          initialaddress1: initialaddress,
+          initialCity1: initialCity,
+          initialCountry1: initialCountry,
         );
       case 3:
         return Notif();
@@ -346,14 +352,14 @@ class _HomepageState extends State<Homepage> {
   Widget _buildCurvedNavigationBar() {
     return CurvedNavigationBar(
       index: _currentIndex,
-      color: Colors.blueAccent,
+      color:  Color.fromARGB(216, 0, 85, 255),
       backgroundColor: const Color.fromARGB(
           255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
       items: [
-        Icon(Icons.home, size: 30),
-        Icon(Icons.business, size: 30),
-        Icon(Icons.heart_broken_sharp, size: 30),
-        Icon(Icons.notifications, size: 30),
+        Icon(Icons.home, size: 30, color: Colors.white,),
+        Icon(Icons.shopping_cart_rounded, size: 30,color: Colors.white,),
+        Icon(Icons.favorite, size: 30,color: Colors.white,),
+        Icon(Icons.notifications, size: 30,color: Colors.white,),
       ],
       onTap: (index) {
         setState(() {

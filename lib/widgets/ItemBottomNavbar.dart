@@ -6,7 +6,7 @@ class ItemBottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       child: Container(
-        height: 70,
+        height: 95,
         padding: EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 255, 255, 255),
@@ -15,7 +15,7 @@ class ItemBottomNavbar extends StatelessWidget {
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 3,
-              blurRadius: 10,
+              blurRadius: 10, 
               offset: Offset(0, 3),
             ),
           ]

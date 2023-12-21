@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
   MyHomePage({
     required this.initialUsername1,
     required this.initialEmail1,
-    required this.initialPassword1,
+    required this.initialPassword1, required String initialaddress1, required String initialPin1, required String initialCity1, required String initialCountry1,
   });
   @override
   _MyHomePageState createState() => _MyHomePageState();

@@ -25,7 +25,7 @@ class CTransaction extends StatelessWidget{
         height: 110,
         width: 100,
         margin: EdgeInsets.only(right: 15),
-        child: Image.asset("images/notif.png"),
+        child: Image.asset("images/transaction.png"),
       ),
       Flexible(
         child: Padding(
@@ -36,7 +36,7 @@ class CTransaction extends StatelessWidget{
               Text(
                 "30% discount up to 10K - Cheap and cheerful",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
@@ -45,7 +45,7 @@ class CTransaction extends StatelessWidget{
               Text(
                 "\Discount for those of you who buy more than 15 thousand",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
