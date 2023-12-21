@@ -16,6 +16,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       color: Color.fromARGB(255, 255, 255, 255),
       padding: EdgeInsets.all(25),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             onTap: () {
@@ -40,10 +41,10 @@ class _HomeAppBarState extends State<HomeAppBar> {
               ),
             ),
           ),
-          Spacer(),
+    
           IconButton(
             onPressed: () => widget.onPressed(),
-            icon: Icon(Icons.supervised_user_circle_outlined),
+            icon: Icon(Icons.supervised_user_circle_outlined,size: 35,),
           ),
         ],
       ),
