@@ -26,6 +26,9 @@ class MyApp extends StatelessWidget {
         "/splash": (context) =>
             SplashScreen(), // Tentukan rute untuk SplashScreen
         "cartPage": (context) => CartPage(),
+        "/splash": (context) =>
+            SplashScreen(), // Tentukan rute untuk SplashScreen
+
         "/buatdata": (context) => IntroSlider(),
         "input": (context) => Input(),
         "itemPage": (context) => ItemPage(),

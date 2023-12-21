@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecomerce_app/pages/NontificatonsPage.dart';
-import 'package:ecomerce_app/pages/PromoPage.dart';
 import 'package:ecomerce_app/pages/Signin.dart';
+import 'package:ecomerce_app/pages/favorite.dart';
 import 'package:ecomerce_app/widgets/PilihanNotif.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
@@ -34,6 +34,33 @@ class _HomepageState extends State<Homepage> {
   String initialaddress = '';
   String initialCity = '';
   String initialCountry = '';
+  int _currentIndex = 0;
+  bool vafsandwich = false;
+  bool vafburger = false;
+  List<Map<String, dynamic>> cart = [];
+
+  void addItem(String name, int price) {
+    // Cek apakah item sudah ada di dalam list
+    int existingIndex = cart.indexWhere((item) => item['nama'] == name);
+
+    if (existingIndex != -1) {
+      // Jika item sudah ada, tambahkan count
+      setState(() {
+        cart[existingIndex]['count'] += 1;
+      });
+    } else {
+      // Jika item belum ada, tambahkan item baru
+      setState(() {
+        cart.add({'nama': name, 'price': price, 'count': 1});
+      });
+    }
+  }
+
+  void removeItem(int index) {
+  setState(() {
+    cart.removeAt(index);
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -58,22 +85,27 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
-                  Container(
-                    height: 60,
-                    width: 65,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.amber),
-                    alignment: Alignment.center,
-                    child: const Text(
-                      'H',
-                      style: TextStyle(fontSize: 30),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 90,
+                        width: 65,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.amber),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'P',
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                   Column(
                     children: const [
@@ -157,232 +189,238 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
-      body: _buildBody(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      body: _getCurrentPage(),
+      bottomNavigationBar:
+          _currentIndex == 1 ? null : _buildCurvedNavigationBar(),
     );
   }
 
-  Widget _buildBody() {
-    return ListView(
-      children: [
-        HomeAppBar(
-          onPressed: () async {
-            final changedData = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Prfr(
-                  username: widget.initialUsername,
-                  email: widget.initialEmail,
-                  password: widget.initialPassword,
-                  pin: initialPin,
-                  address: initialaddress,
-                  city: initialCity,
-                  country: initialCountry,
+  Widget _getCurrentPage() {
+    switch (_currentIndex) {
+      case 0:
+        return ListView(
+          children: [
+            HomeAppBar(
+              onPressed: () async {
+                final changedData = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Prfr(
+                      username: widget.initialUsername,
+                      email: widget.initialEmail,
+                      password: widget.initialPassword,
+                      pin: initialPin,
+                      address: initialaddress,
+                      city: initialCity,
+                      country: initialCountry,
+                    ),
+                  ),
+                );
+
+                if (changedData != null) {
+                  setState(() {
+                    widget.initialUsername = changedData['name'];
+                    widget.initialEmail = changedData['email'];
+                    widget.initialPassword = changedData['password'];
+                    initialPin = changedData['pin'];
+                    initialaddress = changedData['address'];
+                    initialCity = changedData['city'];
+                    initialCountry = changedData['country'];
+                  });
+                }
+              },
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 15),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(213, 227, 227, 227),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
                 ),
               ),
-            );
-
-            if (changedData != null) {
-              setState(() {
-                widget.initialUsername = changedData['name'];
-                widget.initialEmail = changedData['email'];
-                widget.initialPassword = changedData['password'];
-                initialPin = changedData['pin'];
-                initialaddress = changedData['address'];
-                initialCity = changedData['city'];
-                initialCountry = changedData['country'];
-              });
-            }
-          },
-        ),
-        Container(
-          padding: EdgeInsets.only(top: 15),
-          decoration: BoxDecoration(
-            color: Color.fromARGB(213, 227, 227, 227),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(35),
-              topRight: Radius.circular(35),
-            ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 5),
-                      height: 50,
-                      width: 300,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search Here',
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 5),
+                          height: 50,
+                          width: 300,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Search Here',
+                            ),
+                          ),
                         ),
+                        Spacer(),
+                        Icon(
+                          Icons.search_rounded,
+                          size: 27,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 10,
+                    ),
+                    child: Text(
+                      "Semua makanan",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
-                    Spacer(),
-                    Icon(
-                      Icons.search_rounded,
-                      size: 27,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                  ),
+                  //Categories
+                  CategoriesWidget(),
+
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //carousel
+                  CarouselSlider(
+                    options: CarouselOptions(
+                      viewportFraction: 0.95,
+                      aspectRatio: 63 / 16,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 3),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 10,
-                ),
-                child: Text(
-                  "Semua makanan",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              //Categories
-              CategoriesWidget(),
-
-              SizedBox(
-                height: 20,
-              ),
-              //carousel
-              CarouselSlider(
-                options: CarouselOptions(
-                  viewportFraction: 0.95,
-                  aspectRatio: 63 / 16,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 3),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0.3,
-                  scrollDirection: Axis.horizontal,
-                ),
-                items: [
-                  "images/carousel-1.jpg",
-                  "images/carousel-2.jpg",
-                  "images/carousel-1.jpg"
-                ].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 5,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(19),
-                          child: Container(child: Image.asset(i)),
-                        ),
+                    items: [
+                      "images/carousel-1.jpg",
+                      "images/carousel-2.jpg",
+                      "images/carousel-1.jpg"
+                    ].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(19),
+                              child: Container(child: Image.asset(i)),
+                            ),
+                          );
+                        },
                       );
-                    },
-                  );
-                }).toList(),
-              ),
-
-              //items
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                child: Text(
-                  "Terlaris",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    }).toList(),
                   ),
-                ),
+
+                  //items
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    child: Text(
+                      "Terlaris",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                  ),
+                  ItemsWidget(
+                    vafsandwich1: vafsandwich,
+                    vafburger1: vafburger,
+                    //tombol add to favorite
+                    sandwichPressed: () async {
+                      setState(() {
+                        vafsandwich = !vafsandwich;
+                      });
+                    },
+                    burgerPressed: () async {
+                      setState(() {
+                        vafburger = !vafburger;
+                      });
+                    },
+                    //tombol add to cart
+                    sandwichPressedCart: () async {
+                      addItem('Sandwich', 13000);
+                    },
+                    burgerPressedCart: () async {
+                      addItem('Burger', 30000);
+                    },
+                  ),
+                ],
               ),
-              ItemsWidget(),
-            ],
-          ),
-        ),
-      ],
-    );
+            ),
+          ],
+        );
+      case 1:
+        return Payment(
+          onBackButtonPressed: () {
+            setState(() {
+              _currentIndex = 0; // Change to the index of FirstWidget
+            });
+          },
+          cart: cart,
+          removePressed: (int index) => removeItem(index)
+        );
+      case 2:
+        return MyHomePage(
+          initialUsername1: widget.initialUsername,
+          initialEmail1: widget.initialEmail,
+          initialPassword1: widget.initialPassword,
+          vafburger1: vafburger,
+          sandwichPressed: () async {
+            setState(() {
+              vafsandwich = !vafsandwich;
+            });
+          },
+          vafsandwich1: vafsandwich,
+          burgerPressed: () async {
+            setState(() {
+              vafburger = !vafburger;
+            });
+          },
+        );
+      case 3:
+        return notificationpage();
+      default:
+        return Container();
+    }
   }
 
-  Widget _buildBottomNavigationBar() {
+  Widget _buildCurvedNavigationBar() {
     return CurvedNavigationBar(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      onTap: (index) {
-        if (index == 0) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Homepage(
-                    initialUsername: '',
-                    initialEmail: '',
-                    initialPassword: '')),
-          );
-        }
-
-        if (index == 0) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => Homepage(
-                    initialUsername: '',
-                    initialEmail: '',
-                    initialPassword: '')),
-          );
-        }
-        if (index == 1) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PromoPage()),
-          );
-        }
-        if (index == 2) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => payment()),
-          );
-        }
-        if (index == 3) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => notificationpage()),
-          );
-        }
-      },
-      height: 70,
-      color: Color.fromARGB(216, 0, 85, 255),
+      index: _currentIndex,
+      color: Colors.blueAccent,
+      backgroundColor: const Color.fromARGB(
+          255, 234, 242, 249), // Sesuaikan dengan kebutuhan Anda
       items: [
-        Icon(
-          Icons.home_rounded,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        Icon(
-          Icons.favorite,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        Icon(
-          Icons.shopping_cart,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
-        Icon(
-          Icons.notifications,
-          size: 27,
-          color: const Color.fromARGB(255, 255, 255, 255),
-        ),
+        Icon(Icons.home, size: 30),
+        Icon(Icons.business, size: 30),
+        Icon(Icons.heart_broken_sharp, size: 30),
+        Icon(Icons.notifications, size: 30),
       ],
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+        });
+      },
     );
   }
 }

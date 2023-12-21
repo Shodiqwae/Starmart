@@ -29,16 +29,6 @@ class _notificationpageState extends State<notificationpage> {
                 padding: EdgeInsets.all(25),
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        size: 30,
-                        color: Color.fromARGB(255, 8, 8, 8),
-                      ),
-                    ),
                     Padding(
                       padding: EdgeInsets.only(
                         left: 20,
@@ -52,7 +42,6 @@ class _notificationpageState extends State<notificationpage> {
                         ),
                       ),
                     ),
-                    Spacer(),
                   ],
                 ),
               ),

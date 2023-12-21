@@ -3,14 +3,21 @@ import 'package:ecomerce_app/widgets/Checkoutbotnavbar.dart';
 import 'package:ecomerce_app/widgets/checkoutisi.dart';
 import 'package:flutter/material.dart';
 
-class payment extends StatefulWidget {
-  const payment({super.key});
+class Payment extends StatefulWidget {
+  final VoidCallback? onBackButtonPressed;
+  List<Map<String, dynamic>> cart;
+  final Function removePressed;
+
+  Payment({this.onBackButtonPressed,
+  required this.cart,
+  required this.removePressed
+  });
 
   @override
-  State<payment> createState() => _paymentState();
+  State<Payment> createState() => _PaymentState();
 }
 
-class _paymentState extends State<payment> {
+class _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +28,7 @@ class _paymentState extends State<payment> {
       
       body: ListView(
         children: [
-          CekotAppBar(),
+          CekotAppBar(onPressed: widget.onBackButtonPressed),
 
           Container(
             height: 2000,
@@ -29,13 +36,13 @@ class _paymentState extends State<payment> {
            
            child: Column(
   children: [
-    Cekotisi()
+    Cekotisi(cart: widget.cart, removePressed: widget.removePressed,)
   ],
 )
           )
         ],
       ),
-      bottomNavigationBar: CekotBottomNavbar(),
+      bottomNavigationBar: CekotBottomNavbar(cart: widget.cart),
     )
     );
     
