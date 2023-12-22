@@ -19,7 +19,7 @@ class MyorderAppbar extends StatelessWidget {
           ),
           Container(
           padding: EdgeInsets.all(10),
-          margin: EdgeInsets.only(left: 85),
+          
           child: Row(
             
             children: [

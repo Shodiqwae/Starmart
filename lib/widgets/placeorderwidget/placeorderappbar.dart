@@ -19,8 +19,7 @@ class SumAppbar extends StatelessWidget {
             ), // Use Icons.arrow_back instead of Icon.arrow_back
           ),
           Container(
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.only(left: 90),
+          padding: EdgeInsets.all(10),       
           child: Row(
             
             children: [
@@ -28,7 +27,8 @@ class SumAppbar extends StatelessWidget {
                 "Checkout",
                 style: TextStyle(
                   fontSize: 23, 
-                  fontWeight: FontWeight.bold, 
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Montsserat-Regular", 
                   color:  Color.fromARGB(255, 0, 0, 0),
                 ),
               ),

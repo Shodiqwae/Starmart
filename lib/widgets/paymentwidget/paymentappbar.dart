@@ -20,7 +20,7 @@ class SelectpayAppbar extends StatelessWidget {
           ),
           Container(
           padding: EdgeInsets.all(10),
-          margin: EdgeInsets.only(left: 90),
+          
           child: Row(
             
             children: [
