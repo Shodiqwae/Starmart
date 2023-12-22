@@ -1,10 +1,7 @@
-import 'package:ecomerce_app/pages/profile.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
-
 
 class HomeAppBar extends StatefulWidget {
-final Function onPressed;
+  final Function onPressed;
 
   HomeAppBar({required this.onPressed});
 
@@ -13,50 +10,44 @@ final Function onPressed;
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
-  
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Color.fromARGB(255, 255, 255, 255),
-        padding: EdgeInsets.all(25),
-        child: Row(
-          children: [
-            Icon(
+      color: Color.fromARGB(255, 255, 255, 255),
+      padding: EdgeInsets.all(25),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+            child: Icon(
               Icons.sort,
               size: 30,
               color: Color.fromARGB(255, 8, 8, 8),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 20,
-              ),
-              child: Text(
-                "SmartVest",
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: 20,
+            ),
+            child: Text(
+              "SmartVest",
+              style: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
-            Spacer(),
-            badges.Badge(
-              position: badges.BadgePosition.topEnd(top: -8, end: -2),
-              showBadge: true,
-              ignorePointer: false,
-              onTap: () {
-                Navigator.pushNamed(context, "cartPage");
-              },
-              child: IconButton(
-                onPressed: () => widget.onPressed(),
-                icon: Icon(Icons.supervised_user_circle_outlined),
-              ),
-            ),
-          ],
-        ),
+          ),
     
+          IconButton(
+            onPressed: () => widget.onPressed(),
+            icon: Icon(Icons.supervised_user_circle_outlined,size: 35,),
+          ),
+        ],
+      ),
     );
   }
 }

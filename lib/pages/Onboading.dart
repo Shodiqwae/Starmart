@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'Signin.dart';
 
 class OnAppbar extends StatelessWidget {
@@ -97,32 +95,22 @@ class _IntroSliderState extends State<IntroSlider> {
               },
               children: [
                 BuildIntroPage(
-                  img: 'images/2.png',
-                  title: 'Choose Products',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..'
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  img: 'images/intro.png',
+                  title: 'Selamat datang',
+                  description: 'Selamat datang di Smart! Log in sekarang dan nikmati diskon 20% untuk pembelian pertama kamu di aplikasi ini.'
+                  
                 ),
                 BuildIntroPage(
                   img: 'images/keranjang.png',
-                  title: 'Make Payment',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..'
-                       'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  title: 'Lets go',
+                  description: 'Terima kasih sudah mengunjungi aplikasi kami. Silakan lakukan pencarian di aplikasi ini '
+                     
                 ),
                 BuildIntroPage(
-                  img: 'images/1.png',
-                  title: 'Page Three',
-                  description: 'After peeling the strawberries, '
-                      'soak lettuce, pumpkin seeds and '
-                      'worcestershire sauce with it in a soup pot The justice of '
-                      'yearning powers is prime..',
+                  img: 'images/closing.png',
+                  title: 'Selamat berbelanja',
+                  description: 'Halo, Sobat starbhak. Kali ini ada diskon hingga 60% loh. Yuk, buruan dapatkan diskonnya sekarang. '
+                      
                 ),
               ],
             ),
@@ -130,19 +118,22 @@ class _IntroSliderState extends State<IntroSlider> {
           SizedBox(height: 15),
           
           Row(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  children: [
-    TextButton(
-      onPressed: () {
-        if (currentPageIndex > 0) {
-          _controller.previousPage(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeOut,
-          );
-        }
-      },
-      child: Text('Prev', style: TextStyle(fontSize: 21,  color: Colors.black.withOpacity(0.3),)),
-    ),
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Opacity(
+          opacity: currentPageIndex > 0 ? 1.0 : 0.0,
+          child: TextButton(
+            onPressed: () {
+              if (currentPageIndex > 0) {
+                _controller.previousPage(
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeOut,
+                );
+              }
+            },
+            child: Text('Prev', style: TextStyle(fontSize: 21,  color: Colors.black.withOpacity(0.3),)),
+         ),
+      ),
     Spacer(),
     SmoothPageIndicator(
   controller: _controller,

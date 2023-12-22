@@ -1,5 +1,8 @@
 import 'package:ecomerce_app/pages/Homepage.dart';
+import 'package:ecomerce_app/widgets/ItemsWidget.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/HomeAppBar.dart';
 
 class Gst extends StatefulWidget {
   final String username;
@@ -16,12 +19,12 @@ class Gst extends StatefulWidget {
   _GstState createState() => _GstState();
 }
 
-class _GstState extends State<Gst> {
+class _GstState extends State<Gst> {    
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: BoxDecoration(                                                                  
           image: DecorationImage(
             image: AssetImage('images/tebe.png'),
             fit: BoxFit.cover,
@@ -126,7 +129,7 @@ class _YourContentWidgetState extends State<YourContentWidget> {
                         ],
                       ),
                       Text(
-                        _nameText,
+                        _nameText, 
                         style: TextStyle(
                             fontSize: 27,
                             color: Colors.white,

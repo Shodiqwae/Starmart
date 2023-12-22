@@ -30,12 +30,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_zoom_drawer: ^3.0.4+1
   smooth_page_indicator:
   badges: ^3.1.2
   curved_navigation_bar: ^1.0.3
@@ -43,11 +43,22 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   animated_text_kit: ^4.2.2
   typed_data: ^1.3.2
+  carousel_slider: ^4.0.0
+  like_button: ^2.0.5
+  dropdown_button2: ^2.3.9
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/iconapp.jpg"
+  min_sdk_android: 21 
+  # android min sdk min:16, default 21
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -68,19 +79,43 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - images/1.png
-      - images/2.png
-      - images/3.png
-      - images/4.png
-      - images/5.png
-      - images/6.png
-      - images/7.png
+      - images/aqua.jpeg
+      - images/aoka.jpeg
+      - images/batagor.jpeg
+      - images/cireng.jpeg
+      - images/gorengan.jpeg
+      - images/susu.jpeg
+      - images/carousel1.jpg
+      - images/carousel2.jpg
+      - images/nasi_bakar.jpeg
+      - images/nasi_uduk.jpeg
+      - images/profile.jpg
       - images/keranjang.png
       - images/Buttons.png
       - images/tebe.png
+      - images/carousel1.jpg
+      - images/carousel2.jpg
       - images/profile.png
-  #   - images/a_dot_ham.jpeg
-
+      - images/cekotimg/1.png
+      - images/cekotimg/2.png
+      - images/payment/1.png
+      - images/payment/2.png
+      - images/payment/3.png
+      - images/success.gif
+      - images/Logo.png
+      - images/intro.png
+      - images/kosong.png
+      - images/promo.png
+      - images/closing.png
+      - images/transaction.png
+      - images/iconapp.jpg
+      - images/cataimg/1.jpeg
+      - images/cataimg/2.jpeg
+      - images/cataimg/3.jpeg
+      - images/cataimg/4.jpeg
+      - images/cataimg/5.jpeg
+      - images/cataimg/6.jpeg
+      - images/cataimg/7.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
