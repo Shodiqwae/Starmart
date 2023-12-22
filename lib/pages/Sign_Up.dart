@@ -87,7 +87,7 @@ class _SgupState extends State<Sgup> {
                 children: [
                   Container(
                     height: 50,
-                    width: 300,
+                    width: 280,
                     child: TextFormField(
                        controller: emailController,
                       decoration: InputDecoration(
@@ -134,7 +134,7 @@ class _SgupState extends State<Sgup> {
                 children: [
                   Container(
                     height: 50,
-                    width: 300,
+                    width: 280,
                     child: TextFormField(
                       controller: usernameController,
                       decoration: InputDecoration(

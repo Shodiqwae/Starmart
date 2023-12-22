@@ -16,7 +16,7 @@ final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
   onPrimary: Colors.white,
   primary: const Color.fromARGB(255, 0, 88, 184), 
   minimumSize: Size(70, 20),
-  padding: EdgeInsets.symmetric(horizontal: 155, vertical: 15),
+  padding: EdgeInsets.symmetric(horizontal: 153, vertical: 15),
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(5)),
   ),
@@ -93,7 +93,7 @@ class _InputState extends State<Input> {
                   if (!hasAccount)
                     Container(
                       height: 50,
-                      width: 300,
+                      width: 280,
                       child: TextFormField(
                         controller: usernameController,
                         decoration: InputDecoration(
