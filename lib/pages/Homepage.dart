@@ -13,6 +13,7 @@ import '../widgets/ItemsWidget.dart';
 import 'package:ecomerce_app/pages/profile.dart';
 
 import 'Checkout.dart';
+import 'myorder.dart';
 
 class Homepage extends StatefulWidget {
   String initialUsername;
@@ -79,37 +80,44 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(216, 0, 85, 255),
-              ),
-              child: Column(
+      drawer:Drawer(
+  child: Container(
+    padding: EdgeInsets.zero,
+    child: DrawerHeader(
+    
+      decoration: BoxDecoration(
+        color: Color.fromARGB(216, 0, 85, 255),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+        child: Container(
+          height: 100,
+          child: Column(
+            children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: () => ZoomDrawer.of(context)!.close(),
+                    onTap: () {},
                     child: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                       size: 30,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+               
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: 90,
+                        height: 65,
                         width: 65,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.amber),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.amber,
+                        ),
                         alignment: Alignment.center,
                         child: const Text(
                           'P',
@@ -118,11 +126,18 @@ class _HomepageState extends State<Homepage> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
+                     SizedBox(
+                    height: 10,
                   ),
+                  Divider(
+  height: 20, // tinggi garis
+  color: Colors.black, // warna garis
+  thickness: 2,
+),
+               
                   Column(
-                    children: const [
+                    children:  [
+                      
                       ListTile(
                         leading: Icon(
                           Icons.home_outlined,
@@ -134,6 +149,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                       
                       ),
                       ListTile(
                         leading: Icon(
@@ -170,6 +186,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                            onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => notificationpage()),);},
                       ),
                       ListTile(
                         leading: Icon(
@@ -199,10 +216,14 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+    
+    ),
+  ),
+),
+
       body: _getCurrentPage(),
       bottomNavigationBar:
           _currentIndex == 1 ? null : _buildCurvedNavigationBar(),
@@ -268,7 +289,7 @@ class _HomepageState extends State<Homepage> {
                         Container(
                           margin: EdgeInsets.only(left: 5),
                           height: 50,
-                          width: 300,
+                          width: 200,
                           child: TextFormField(
                             decoration: InputDecoration(
                               border: InputBorder.none,

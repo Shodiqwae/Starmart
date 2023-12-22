@@ -46,6 +46,7 @@ dependencies:
   carousel_slider: ^4.0.0
   like_button: ^2.0.5
   dropdown_button2: ^2.3.9
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,8 @@ flutter:
       - images/cireng.jpeg
       - images/gorengan.jpeg
       - images/susu.jpeg
+      - images/carousel1.jpg
+      - images/carousel2.jpg
       - images/nasi_bakar.jpeg
       - images/nasi_uduk.jpeg
       - images/profile.jpg

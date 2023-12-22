@@ -70,785 +70,808 @@ class ItemsWidgetState extends State<ItemsWidget> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      childAspectRatio: 0.68,
+      childAspectRatio: 0.60,
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       shrinkWrap: true,
       children: [
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-31%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-31%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafaqua1 ? Icons.favorite : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafaqua1 ? Icons.favorite : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.aquaPressed(),
                     ),
-                    onPressed: () => widget.aquaPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageAqua");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/aqua.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageAqua");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/aqua.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Aqua",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "aqua lezat",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp.5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Aqua",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "aqua lezat",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.aquaPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp.5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.aquaPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
         //aoka
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+           physics: ClampingScrollPhysics(),
+          child: Container(
+            
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafaoka1 ? Icons.favorite : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafaoka1 ? Icons.favorite : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.aokaPressed(),
                     ),
-                    onPressed: () => widget.aokaPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageAoka");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/aoka.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageAoka");
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/aoka.jpeg",
+                          height: 120,
+                          width: 120,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Aoka",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "roti aoka",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 3.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Aoka",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Roti Aoka",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.aokaPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 3.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.aokaPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
         //batagor
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafbatagor1
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafbatagor1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.batagorPressed(),
                     ),
-                    onPressed: () => widget.batagorPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageBatagor");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/batagor.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageBatagor");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/batagor.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Batagor",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Batagor",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.batagorPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.batagorPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
         //cireng
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafcireng1
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafcireng1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.cirengPressed(),
                     ),
-                    onPressed: () => widget.cirengPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageCireng");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/cireng.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageCireng");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/cireng.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Cireng",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Cireng",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.cirengPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.cirengPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
 //gorengan
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafgorengan1
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafgorengan1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.gorenganPressed(),
                     ),
-                    onPressed: () => widget.gorenganPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageGorengan");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/gorengan.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageGorengan");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/gorengan.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Gorengan",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 1.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Gorengan",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.gorenganPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 1.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.gorenganPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
 //susu
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafsusu1 ? Icons.favorite : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafsusu1 ? Icons.favorite : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.susuPressed(),
                     ),
-                    onPressed: () => widget.susuPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageSusu");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/susu.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageSusu");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/susu.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Susu",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Susu",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.susuPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.susuPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
 //nasi_bakar
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafnasi_bakar1
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafnasi_bakar1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.nasi_bakarPressed(),
                     ),
-                    onPressed: () => widget.nasi_bakarPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageNasi_Bakar");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/nasi_bakar.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageNasi_Bakar");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/nasi_bakar.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Nasi Bakar",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Nasi Bakar",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.nasi_bakarPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.nasi_bakarPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
 //nasi_uduk
-        Container(
-          padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(216, 0, 85, 255),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      "-40%",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(216, 0, 85, 255),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "-40%",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      widget.vafnasi_uduk1
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: const Color.fromARGB(255, 244, 54, 124),
+                    IconButton(
+                      icon: Icon(
+                        widget.vafnasi_uduk1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: const Color.fromARGB(255, 244, 54, 124),
+                      ),
+                      onPressed: () => widget.nasi_udukPressed(),
                     ),
-                    onPressed: () => widget.nasi_udukPressed(),
-                  ),
-                ],
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, "itemPageNasi_Uduk");
-                },
-                child: Container(
-                  margin: EdgeInsets.all(10),
-                  child: Image.asset(
-                    "images/nasi_uduk.jpeg",
-                    height: 120,
-                    width: 120,
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "itemPageNasi_Uduk");
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Image.asset(
+                      "images/nasi_uduk.jpeg",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 8),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Nasi Uduk",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "om teten",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Rp. 5.000",
+                Container(
+                  padding: EdgeInsets.only(bottom: 8),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Nasi Uduk",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "om teten",
+                    style: TextStyle(
+                      fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart_checkout,
-                        color: Color.fromARGB(216, 0, 85, 255)),
-                    onPressed: () => widget.nasi_udukPressedCart(),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Rp. 5.000",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart_checkout,
+                          color: Color.fromARGB(216, 0, 85, 255)),
+                      onPressed: () => widget.nasi_udukPressedCart(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 

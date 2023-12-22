@@ -118,6 +118,7 @@ class _PrfrState extends State<Prfr> {
 
   @override
   Widget build(BuildContext context) {
+     double globalWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -230,7 +231,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                            width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: emailController,
                                 decoration: InputDecoration(
@@ -277,7 +278,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                              width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: nameController,
                                 decoration: InputDecoration(
@@ -380,7 +381,7 @@ class _PrfrState extends State<Prfr> {
                         ],
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+                        margin: EdgeInsets.only(top: 10, left: 20, right: 14),
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         height: 54,
                         width: double
@@ -467,7 +468,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                           width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: pinController,
                                 decoration: InputDecoration(
@@ -520,7 +521,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                              width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: addressController,
                                 decoration: InputDecoration(
@@ -573,7 +574,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                              width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: cityController,
                                 decoration: InputDecoration(
@@ -627,7 +628,7 @@ class _PrfrState extends State<Prfr> {
                           children: [
                             Container(
                               height: 50,
-                              width: 300,
+                             width: (globalWidth / 1.3),
                               child: TextFormField(
                                 controller: countryController,
                                 decoration: InputDecoration(
