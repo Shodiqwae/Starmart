@@ -27,7 +27,7 @@ class CPromo extends StatelessWidget {
                   height: 110,
                   width: 100,
                   margin: EdgeInsets.only(right: 15),
-                  child: Image.asset("images/1.jpg"),
+                  child: Image.asset("images/promo.png"),
                 ),
                 Flexible(
                   child: Padding(
@@ -44,12 +44,27 @@ class CPromo extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 5), // Atur jarak
-                        Text(
-                          "Slamet Yono dan Siti Berjalan Mencari jati diri",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                          ),
+                        
+                          
+                            Text(
+                              "Slamet Yono dan Siti Berjalan Mencari jati diri",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ),
+             
+                          SizedBox(height: 10,),
+                            Row(
+                          children: [
+                            Text(
+                              "Will come in 10 days",
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Color.fromARGB(255, 57, 56, 145),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -67,14 +82,38 @@ class CPromo extends StatelessWidget {
                         color: Color.fromARGB(180, 46, 112, 255), width: 2),
                   ),
                   child: Center(
-                    child: Text(
-                      "USE",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
-                        color: Color.fromARGB(180, 46, 112, 255),
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Not",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                color: Color.fromARGB(180, 194, 48, 43),
+                              ),
+                            ),
+                          ],
+                        ),
+                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                           children: [
+                             Text(
+                              "USE",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                color: Color.fromARGB(180, 194, 48, 43),
+                              ),
+                        ),
+                           ],
+                         ),
+                      ],
                     ),
+                    
                   ),
                 ),
               ],

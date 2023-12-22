@@ -70,13 +70,13 @@ class ItemsWidgetState extends State<ItemsWidget> {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      childAspectRatio: 0.60,
+      childAspectRatio: 0.63,
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       shrinkWrap: true,
       children: [
-        SingleChildScrollView(
-          child: Container(
+        
+           Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
             decoration: BoxDecoration(
@@ -117,13 +117,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageAqua");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/aqua.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/aqua.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -141,21 +146,22 @@ class ItemsWidgetState extends State<ItemsWidget> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "aqua lezat",
+                    "Aqua lezat,Sehat",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp.5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -170,12 +176,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+        
 
         //aoka
-        SingleChildScrollView(
-           physics: ClampingScrollPhysics(),
-          child: Container(
+        
+           Container(
             
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -224,8 +229,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
                         margin: EdgeInsets.all(10),
                         child: Image.asset(
                           "images/aoka.jpeg",
-                          height: 120,
-                          width: 120,
+                          height: 110,
+                          width: 110,
                         ),
                       ),
                     ],
@@ -246,21 +251,22 @@ class ItemsWidgetState extends State<ItemsWidget> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Roti Aoka",
+                    "Roti Sehat",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 3.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -275,11 +281,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+        
 
         //batagor
-        SingleChildScrollView(
-          child: Container(
+        
+         Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -322,13 +328,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageBatagor");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/batagor.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/batagor.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -348,19 +359,20 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -375,11 +387,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+
 
         //cireng
-        SingleChildScrollView(
-          child: Container(
+        
+           Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -422,13 +434,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageCireng");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/cireng.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/cireng.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -446,21 +463,22 @@ class ItemsWidgetState extends State<ItemsWidget> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "om teten",
+                    "Cireng Rasa",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -475,11 +493,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+
 
 //gorengan
-        SingleChildScrollView(
-          child: Container(
+        
+           Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -522,13 +540,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageGorengan");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/gorengan.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/gorengan.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -537,6 +560,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   child: Text(
                     "Gorengan",
                     style: TextStyle(
+                      
                       fontSize: 18,
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
@@ -546,21 +570,22 @@ class ItemsWidgetState extends State<ItemsWidget> {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "om teten",
+                    "Goreng",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 1.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -575,11 +600,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+
 
 //susu
-        SingleChildScrollView(
-          child: Container(
+        
+           Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -620,13 +645,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageSusu");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/susu.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/susu.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -646,19 +676,20 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -673,11 +704,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+
 
 //nasi_bakar
-        SingleChildScrollView(
-          child: Container(
+        
+         Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -720,13 +751,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageNasi_Bakar");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/nasi_bakar.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/nasi_bakar.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -746,19 +782,20 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -773,11 +810,11 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+        
 
 //nasi_uduk
-        SingleChildScrollView(
-          child: Container(
+        
+           Container(
             padding: EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: BoxDecoration(
@@ -820,13 +857,18 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   onTap: () {
                     Navigator.pushNamed(context, "itemPageNasi_Uduk");
                   },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Image.asset(
-                      "images/nasi_uduk.jpeg",
-                      height: 120,
-                      width: 120,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        child: Image.asset(
+                          "images/nasi_uduk.jpeg",
+                          height: 110,
+                          width: 110,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
@@ -846,19 +888,20 @@ class ItemsWidgetState extends State<ItemsWidget> {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                         fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                   ),
                 ),
-                SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+                SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -873,7 +916,9 @@ class ItemsWidgetState extends State<ItemsWidget> {
               ],
             ),
           ),
-        ),
+      
+    
+    
 
         //cart 3
 
@@ -919,8 +964,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           margin: EdgeInsets.all(10),
         //           child: Image.asset(
         //             "images/3.png",
-        //             height: 120,
-        //             width: 120,
+        //             height: 110,
+        //             width: 110,
         //           ),
         //         ),
         //       ),
@@ -946,14 +991,14 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           ),
         //         ),
         //       ),
-        //       SizedBox(height: 10), // Jarak antara konten card dan ikon + teks
+        //       SizedBox(height: 2), // Jarak antara konten card dan ikon + teks
         //       Row(
         //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         //         children: [
         //           Text(
         //             "Rp.22.000",
         //             style: TextStyle(
-        //               fontSize: 16,
+        //               fontSize: 18,
         //               fontWeight: FontWeight.bold,
         //               color: Color.fromARGB(255, 0, 0, 0),
         //             ),
@@ -1012,8 +1057,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           margin: EdgeInsets.all(10),
         //           child: Image.asset(
         //             "images/4.png",
-        //             height: 120,
-        //             width: 120,
+        //             height: 110,
+        //             width: 110,
         //           ),
         //         ),
         //       ),
@@ -1046,7 +1091,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           Text(
         //             "Rp.32.500",
         //             style: TextStyle(
-        //               fontSize: 16,
+        //               fontSize: 18,
         //               fontWeight: FontWeight.bold,
         //               color: Color.fromARGB(255, 0, 0, 0),
         //             ),
@@ -1105,8 +1150,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           margin: EdgeInsets.all(10),
         //           child: Image.asset(
         //             "images/5.png",
-        //             height: 120,
-        //             width: 120,
+        //             height: 110,
+        //             width: 110,
         //           ),
         //         ),
         //       ),
@@ -1139,7 +1184,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           Text(
         //             "Rp.14.000",
         //             style: TextStyle(
-        //               fontSize: 16,
+        //               fontSize: 18,
         //               fontWeight: FontWeight.bold,
         //               color: Color.fromARGB(255, 0, 0, 0),
         //             ),
@@ -1198,8 +1243,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           margin: EdgeInsets.all(10),
         //           child: Image.asset(
         //             "images/6.png",
-        //             height: 120,
-        //             width: 120,
+        //             height: 110,
+        //             width: 110,
         //           ),
         //         ),
         //       ),
@@ -1232,7 +1277,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           Text(
         //             "Rp.35.500",
         //             style: TextStyle(
-        //               fontSize: 16,
+        //               fontSize: 18,
         //               fontWeight: FontWeight.bold,
         //               color: Color.fromARGB(255, 0, 0, 0),
         //             ),
@@ -1291,8 +1336,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           margin: EdgeInsets.all(10),
         //           child: Image.asset(
         //             "images/7.png",
-        //             height: 120,
-        //             width: 120,
+        //             height: 110,
+        //             width: 110,
         //           ),
         //         ),
         //       ),
@@ -1325,7 +1370,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
         //           Text(
         //             "Rp.15.500",
         //             style: TextStyle(
-        //               fontSize: 16,
+        //               fontSize: 18,
         //               fontWeight: FontWeight.bold,
         //               color: Color.fromARGB(255, 0, 0, 0),
         //             ),

@@ -26,7 +26,7 @@ class CTransaction extends StatelessWidget {
                   height: 110,
                   width: 100,
                   margin: EdgeInsets.only(right: 15),
-                  child: Image.asset("images/notif.png"),
+                  child: Image.asset("images/transaction.png"),
                 ),
                 Flexible(
                   child: Padding(

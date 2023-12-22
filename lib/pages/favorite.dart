@@ -214,7 +214,7 @@ class _ScrollableContainerState extends State<ScrollableContainer> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        height: 800.0, // Atur tinggi container kedua sesuai kebutuhan
+        height: 1700.0, // Atur tinggi container kedua sesuai kebutuhan
 
         decoration: BoxDecoration(
           color: Color.fromARGB(241, 241, 241, 241),

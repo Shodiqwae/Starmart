@@ -59,7 +59,7 @@ class _selectpayState extends State<selectpay> {
                 ),
                 SizedBox(height: 16.0),
                 Text(
-                  'Pembayaran Berhasil',
+                  'Payment Succsessful',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               ],

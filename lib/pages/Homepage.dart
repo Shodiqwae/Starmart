@@ -162,6 +162,15 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                          onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) =>  Prfr(
+                      username: widget.initialUsername,
+                      email: widget.initialEmail,
+                      password: widget.initialPassword,
+                      pin: initialPin,
+                      address: initialaddress,
+                      city: initialCity,
+                      country: initialCountry,
+                    ),),);},
                       ),
                       ListTile(
                         leading: Icon(
@@ -211,6 +220,7 @@ class _HomepageState extends State<Homepage> {
                             color: Color.fromARGB(255, 47, 47, 47),
                           ),
                         ),
+                           onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Input()),);},
                       ),
                     ],
                   ),
@@ -389,6 +399,7 @@ class _HomepageState extends State<Homepage> {
                     //tombol add to favorite
                     aquaPressed: () async {
                       setState(() {
+                        
                         vafaqua = !vafaqua;
                       });
                     },
@@ -429,27 +440,35 @@ class _HomepageState extends State<Homepage> {
                     },
                     //tombol add to cart
                     aquaPressedCart: () async {
+                      _showPopup(context);
                       addItem('aqua', 3000, '4.0', 4.0, 'Aqua');
                     },
                     aokaPressedCart: () async {
+                      _showPopup(context);
                       addItem('aoka', 3000, '4.5', 4.5, 'Aoka');
                     },
                     batagorPressedCart: () async {
+                       _showPopup(context);
                       addItem('batagor', 5000, '4.5', 4.5, 'Batagor');
                     },
                     cirengPressedCart: () async {
+                       _showPopup(context);
                       addItem('cireng', 5000, '4.5', 4.5, 'Cireng');
                     },
                     gorenganPressedCart: () async {
+                       _showPopup(context);
                       addItem('gorengan', 1000, '4.5', 4.5, 'Gorengan');
                     },
                     susuPressedCart: () async {
+                       _showPopup(context);
                       addItem('susu', 5000, '4.5', 4.5, 'Susu');
                     },
                     nasi_bakarPressedCart: () async {
+                       _showPopup(context);
                       addItem('nasi_bakar', 5000, '4.5', 4.5, 'Nasi Bakar');
                     },
                     nasi_udukPressedCart: () async {
+                       _showPopup(context);
                       addItem('nasi_uduk', 5000, '4.5', 4.5, 'Nasi Uduk');
                     },
                   ),
@@ -566,5 +585,41 @@ class _HomepageState extends State<Homepage> {
         });
       },
     );
+  }
+    void _showPopup(BuildContext context) {
+   late OverlayEntry overlayEntry;
+
+    overlayEntry = OverlayEntry(
+      builder: (context) => Positioned(
+        top: 25,
+        left: 0,
+        child: Material(
+          color: Color.fromARGB(255, 5, 20, 188),
+          child: Container(
+            decoration: BoxDecoration(
+            color: Color.fromARGB(255, 5, 20, 188),
+              borderRadius: BorderRadius.circular(25)
+            ),
+            width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Menambahkan pesanan ke keranjang',style: TextStyle(color: Colors.white,fontFamily: 'Montsserat-Bold',fontSize: 16),
+                    )
+                  ],
+                ),
+              
+            
+          ),
+        ),
+      ),
+    );
+
+    Overlay.of(context).insert(overlayEntry);
+
+    Future.delayed(Duration(seconds: 1), () {
+      overlayEntry.remove();
+    });
   }
 }
