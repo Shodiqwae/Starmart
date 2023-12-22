@@ -40,7 +40,7 @@ class Crt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      childAspectRatio: 0.60,
+      childAspectRatio: 0.63,
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       shrinkWrap: true,
@@ -88,8 +88,8 @@ class Crt extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/aqua.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -108,8 +108,9 @@ class Crt extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "aqua lezat",
+                    "aqua lezat,Sehat",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -123,7 +124,7 @@ class Crt extends StatelessWidget {
                     Text(
                       "Rp.13.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -178,8 +179,8 @@ class Crt extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/aoka.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -200,6 +201,7 @@ class Crt extends StatelessWidget {
                   child: Text(
                     "aoka high kalori",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -213,7 +215,7 @@ class Crt extends StatelessWidget {
                     Text(
                       "Rp. 30.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -267,8 +269,8 @@ class Crt extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/batagor.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -289,6 +291,7 @@ class Crt extends StatelessWidget {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -302,7 +305,7 @@ class Crt extends StatelessWidget {
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -356,8 +359,8 @@ class Crt extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/cireng.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -378,6 +381,7 @@ class Crt extends StatelessWidget {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -391,7 +395,7 @@ class Crt extends StatelessWidget {
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -445,8 +449,8 @@ class Crt extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/gorengan.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -467,6 +471,7 @@ class Crt extends StatelessWidget {
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -480,7 +485,7 @@ class Crt extends StatelessWidget {
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -534,8 +539,8 @@ if (susu)
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/susu.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -556,6 +561,7 @@ if (susu)
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                      fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -569,7 +575,7 @@ if (susu)
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -623,8 +629,8 @@ if (nasi_bakar)
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/nasi_bakar.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -645,6 +651,7 @@ if (nasi_bakar)
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                        fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -658,7 +665,7 @@ if (nasi_bakar)
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -713,8 +720,8 @@ if (nasi_uduk)
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
                       "images/nasi_uduk.jpeg",
-                      height: 120,
-                      width: 120,
+                      height: 110,
+                      width: 110,
                     ),
                   ),
                 ),
@@ -735,6 +742,7 @@ if (nasi_uduk)
                   child: Text(
                     "om teten",
                     style: TextStyle(
+                        fontFamily: 'Montsserat-Medium',
                       fontSize: 15,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -748,7 +756,7 @@ if (nasi_uduk)
                     Text(
                       "Rp. 5.000",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),

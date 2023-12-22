@@ -57,8 +57,8 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "images/iconapp.jpg"
-  min_sdk_android: 21
-
+  min_sdk_android: 21 
+  # android min sdk min:16, default 21
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -93,6 +93,8 @@ flutter:
       - images/keranjang.png
       - images/Buttons.png
       - images/tebe.png
+      - images/carousel1.jpg
+      - images/carousel2.jpg
       - images/profile.png
       - images/cekotimg/1.png
       - images/cekotimg/2.png
@@ -106,8 +108,14 @@ flutter:
       - images/promo.png
       - images/closing.png
       - images/transaction.png
-
-
+      - images/iconapp.jpg
+      - images/cataimg/1.jpeg
+      - images/cataimg/2.jpeg
+      - images/cataimg/3.jpeg
+      - images/cataimg/4.jpeg
+      - images/cataimg/5.jpeg
+      - images/cataimg/6.jpeg
+      - images/cataimg/7.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
