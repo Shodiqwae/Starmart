@@ -46,11 +46,18 @@ dependencies:
   carousel_slider: ^4.0.0
   like_button: ^2.0.5
   dropdown_button2: ^2.3.9
-  flutter_launcher_icons: ^0.13.1
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/iconapp.jpg"
+  min_sdk_android: 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
